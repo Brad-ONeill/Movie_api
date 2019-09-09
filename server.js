@@ -13,10 +13,26 @@ http.createServer((request, response) => { //takes he function 'createServer' fr
     filePath = 'index.html';
   };
 
-    response.writeHead(200, { 'Content-Type': 'text/html' });
-    response.write(data);
+  fs.readFile(filePath, function(err, data) {
+    if (err) {
+      throw err;
+    }
+
+  fs.appendFile('log.txt', 'URL' + addr + '\nTimestamp: ' + new Date() + '\n\n', function(err) {
+    if (err) {
+      console.log(err);
+    }
+      else {
+        console.log('Added to log.');
+      }
+  });
+
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    respone.write(data);
     response.end();
 
   });
 
-}).listen(8080); //listens for a response on port 8080 (any port possible but, no lower than 1024)
+}).listen(8080.); //listens for a response on port 8080 (any port possible but, no lower than 1024)
+
+console.log ('Success! URL')
