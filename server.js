@@ -9,7 +9,8 @@ http.createServer((request, response) => { //takes he function 'createServer' fr
 
   if (q.pathname.includes('documentation')) {
     filePath = (__dirname + '/documentation.html');
-  } else {
+  }
+  else {
     filePath = 'index.html';
   };
 
@@ -35,4 +36,4 @@ http.createServer((request, response) => { //takes he function 'createServer' fr
 
 }).listen(8080.); //listens for a response on port 8080 (any port possible but, no lower than 1024)
 
-console.log ('Success! URL')
+console.log ('Success!')
