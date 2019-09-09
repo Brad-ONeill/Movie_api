@@ -29,7 +29,7 @@ http.createServer((request, response) => { //takes he function 'createServer' fr
   });
 
     response.writeHead(200, {'Content-Type': 'text/html'});
-    respone.write(data);
+    response.write(data);
     response.end();
 
   });
