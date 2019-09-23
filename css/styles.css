@@ -1,0 +1,29 @@
+
+body {
+	background-color: #f1f1f1;
+	font-family: 'Comfortaa', cursive;
+	color: #494949;
+}
+
+h1 {
+	letter-spacing: 0.2em;
+	color: #191919;
+}
+
+p {
+	line-height: 1.5em
+}
+
+.c-text {
+	text-align: center;
+}
+
+.banner {
+	display: block;
+	margin: 0 auto;
+	padding:20px;
+	width: 100%;
+	max-width: 950px;
+	min-width: 360;
+	border-radius: 40px;
+}
