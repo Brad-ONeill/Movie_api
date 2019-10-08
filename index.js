@@ -17,7 +17,7 @@ app.use(function (err, req, res, next) {
 	res.status(500).send('Oops! Sorry about that, something went wrong!');
 });
 
-// GET requests
+// app requests
 app.get('/movies', function (req, res) {
 	res.send("Successful GET request returning data about all movies.");
 });
