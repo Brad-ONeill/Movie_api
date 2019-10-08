@@ -5,47 +5,6 @@ const express = require('express'),
 
 const app = express();
 
-let favMovies = [{
-		title: 'John Wick',
-		Director: 'Chad Stahleski & David Leitch'
-},
-	{
-		title: 'Die Hard',
-		Director: 'John McTiernan'
-},
-	{
-		title: 'Aliens',
-		Director: 'James Cameron'
-},
-	{
-		title: 'Deadpool',
-		Director: 'Tim Miller'
-},
-	{
-		title: 'Zombieland',
-		Director: 'Ruben Fleischer'
-},
-	{
-		title: 'The 5th Element',
-		Director: 'Luc Besson'
-},
-	{
-		title: 'Drive',
-		Director: 'Nicholas Winding Refn'
-},
-	{
-		title: 'The Thing',
-		Director: 'John Carpenter'
-},
-	{
-		title: 'Unbreakable',
-		Director: 'M. Night Shyamalan'
-},
-	{
-		title: 'Terminator 2: Judgement Day',
-		Director: 'James Cameron'
-}
-]
 
 app.use(express.static('public'));
 
