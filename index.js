@@ -1,7 +1,7 @@
 const express = require('express'),
 	  morgan = require('morgan'),
-	  bodyParser = require("body-parser"),
-	  uuid = require("uuid");
+	  bodyParser = require('body-parser'),
+	  uuid = require('uuid/v5');
 
 const app = express();
 
@@ -53,8 +53,6 @@ app.delete('/favourites/id/title', function (req, res) {
 app.delete('/register/user/id', function (req, res) {
 	res.send("User successfully deregistered");
 });
-
-
 
 // listening for requests
 app.listen(8080, () =>
