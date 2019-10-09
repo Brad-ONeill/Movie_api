@@ -16,13 +16,417 @@
 	</header>
 	<div>
 		<p class="c-text">A web application that will provide users with access to information about different movies, directors, and genres.<br>
-		Users will be able to sign up, update their personal information, and create a list of their favorite movies</p>
+			Users will be able to sign up, update their personal information, and create a list of their favorite movies</p>
+	</div>
+	<div class="l-center">
+		<div>
+			<h2>Endpoints</h2>
+		</div>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h4>Endpoint URL:</h4>
+						</td>
+						<td>/movies</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Description:</h4>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Method:</h4>
+						</td>
+						<td>GET</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Query parameter:</h4>
+						</td>
+						<td>None</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected data format:</h4>
+						</td>
+						<td>
+							<p class="nogap">JSON Object:</p>
+							<p class="nogap">Example:</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected response format:</h4>
+						</td>
+						<td>Response format</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h4>Endpoint URL:</h4>
+						</td>
+						<td>/movies/[title]</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Description:</h4>
+						</td>
+						<td>Retrieve information on a single movie by title</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Method:</h4>
+						</td>
+						<td>GET</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Query parameter:</h4>
+						</td>
+						<td>None</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected data format:</h4>
+						</td>
+						<td>
+							<p class="nogap">JSON Object:</p>
+							<p class="nogap">Example:</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected response format:</h4>
+						</td>
+						<td>Response format</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h4>Endpoint URL:</h4>
+						</td>
+						<td>/movies/[genre]</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Description:</h4>
+						</td>
+						<td>Retreieve information about a single genre by type</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Method:</h4>
+						</td>
+						<td>GET</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Query parameter:</h4>
+						</td>
+						<td>None</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected data format:</h4>
+						</td>
+						<td>
+							<p class="nogap">JSON Object:</p>
+							<p class="nogap">Example:</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected response format:</h4>
+						</td>
+						<td>Response format</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h4>Endpoint URL:</h4>
+						</td>
+						<td>/movies/dir/[name]</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Description:</h4>
+						</td>
+						<td>Retrieve information about a single director by name</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Method:</h4>
+						</td>
+						<td>GET</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Query parameter:</h4>
+						</td>
+						<td>None</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected data format:</h4>
+						</td>
+						<td>
+							<p class="nogap">JSON Object:</p>
+							<p class="nogap">Example:</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected response format:</h4>
+						</td>
+						<td>Response format</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h4>Endpoint URL:</h4>
+						</td>
+						<td>/register/user</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Description:</h4>
+						</td>
+						<td>Add a new user to the database and assign a unique id</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Method:</h4>
+						</td>
+						<td>POST</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Query parameter:</h4>
+						</td>
+						<td>None</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected data format:</h4>
+						</td>
+						<td>Ex body request</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected response format:</h4>
+						</td>
+						<td>Response format</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h4>Endpoint URL:</h4>
+						</td>
+						<td>/update/user/[id]</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Description:</h4>
+						</td>
+						<td>Update a user's information</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Method:</h4>
+						</td>
+						<td>PUT</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Query parameter:</h4>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected data format:</h4>
+						</td>
+						<td>Ex body request</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected response format:</h4>
+						</td>
+						<td>Text response to notify the user the update was successful</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h4>Endpoint URL:</h4>
+						</td>
+						<td>/favourites/[id]/[title]</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Description:</h4>
+						</td>
+						<td>Update a user's information</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Method:</h4>
+						</td>
+						<td>POST</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Query parameter:</h4>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected data format:</h4>
+						</td>
+						<td>Ex body request</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected response format:</h4>
+						</td>
+						<td>Text response to notify the user the movie has been added to their favourites list</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h4>Endpoint URL:</h4>
+						</td>
+						<td>/favourites/[id]/[title]</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Description:</h4>
+						</td>
+						<td>Update a user's information</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Method:</h4>
+						</td>
+						<td>DELETE/td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Query parameter:</h4>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected data format:</h4>
+						</td>
+						<td>Ex body request</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected response format:</h4>
+						</td>
+						<td>Text response to notify the user the movie has been removed from their favourites list</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<h4>Endpoint URL:</h4>
+						</td>
+						<td>/register/user/[id]</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Description:</h4>
+						</td>
+						<td>Update a user's information</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Method:</h4>
+						</td>
+						<td>DELETE/td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Query parameter:</h4>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected data format:</h4>
+						</td>
+						<td>Ex body request</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Expected response format:</h4>
+						</td>
+						<td>Text response to notify the user they have successfully removed their profile</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
 	</div>
 	<footer>
-		
-<img class="banner" src="../img/welcom_to_the_party.png">
-	
-			</footer>
+
+		<img class="banner" src="../img/welcom_to_the_party.png">
+
+	</footer>
 
 </body>
 
