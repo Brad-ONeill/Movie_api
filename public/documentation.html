@@ -11,421 +11,480 @@
 </head>
 
 <body>
-	<header>
-		<h1 class="c-text">MyFlix</h1>
-	</header>
-	<div>
-		<p class="c-text">A web application that will provide users with access to information about different movies, directors, and genres.<br>
-			Users will be able to sign up, update their personal information, and create a list of their favorite movies</p>
+	<div class="container">
+		<header>
+			<div class="flex-header">
+				<div>
+					<h1>MyFlix</h1>
+				</div>
+
+			</div>
+
+			<div class="flex-header">
+				<div>
+
+					<p>A web application that will provide users with access to information about different movies, directors, and genres.<br>
+						Users will be able to sign up, update their personal information, and create a list of their favorite movies</p>
+				</div>
+			</div>
+		</header>
+
+		<div class="flex-body">
+			<div>
+				<h2>Endpoints</h2>
+			</div>
+		</div>
+
+		<!--items-->
+		<div class="flex-body">
+			<div>
+				<h4>Endpoint URL:</h4>
+			</div>
+			<div>
+				/movies
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Description:</h4>
+			</div>
+			<div>
+				Retrieves data for all movies in the registry
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Method:</h4>
+			</div>
+			<div>
+				GET
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected data format:</h4>
+			</div>
+			<div>
+				None
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected response format:</h4>
+			</div>
+			<div>
+				<p class="nogap">JSON object containing data about all movies.</p>
+				<p class="nogap">Example: <span class="ex">
+						{
+						Title: "John Wick: Chapter 3 – Parabellum",
+						Description: "After gunning down a member of the High Table, the shadowy international assassin's guild, legendary hit man John Wick finds himself stripped of the organization's protective services. Now stuck with a $14 million bounty on his head, Wick must fight his way through the streets of New York as he becomes the target of the world's most ruthless killers.",
+						Genre: {
+						Name: "Action",
+						Description: "Physical action takes precedence in the storytelling. The film will often have continuous motion and action including physical stunts, chases, fights, battles, and races. The story usually revolves around a hero that has a goal, but is facing incredible odds to obtain it"
+						},
+
+						Director: {
+						Name: "Chad Stahelski",
+						Bio: "Chad Stahelski is an American stuntman and film director. He is known for directing the 2014 film John Wick along with David Leitch, and solo directing its two sequels. Stahelski also doubled for Brandon Lee after the fatal accident involving Lee on the set of The Crow and replaced Lee in the film.",
+						Birth: "20 September 1968",
+						Death: "n/a"
+						},
+
+						Actors: ["Keanu Reeves, Halle Berry, Laurence Fishburne, Mark Dacascos, Lance Reddick, Anjelica Huston, Ian McShane"],
+						ImagePath: "https://bit.ly/2OyWaPs",
+						Featured: True
+						}</span>
+				</p>
+			</div>
+		</div>
+		<hr>
+		<!--items-->
+		<div class="flex-body">
+			<div>
+				<h4>Endpoint URL:</h4>
+			</div>
+			<div>
+				/movies/[title]
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Description:</h4>
+			</div>
+			<div>
+				Retrieves data for a single movie in the registry by name
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Method:</h4>
+			</div>
+			<div>
+				GET
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected data format:</h4>
+			</div>
+			<div>
+				None
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected response format:</h4>
+			</div>
+			<div>
+				<p class="nogap">JSON object containing data about all movies.</p>
+				<p class="nogap">Example: <span class="ex">Same as previous</span>
+				</p>
+			</div>
+		</div>
+		<hr>
+		<!--items-->
+		<div class="flex-body">
+			<div>
+				<h4>Endpoint URL:</h4>
+			</div>
+			<div>
+				/movies/[genre]
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Description:</h4>
+			</div>
+			<div>
+				Retrieves data for a single genre in the registry by genre type
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Method:</h4>
+			</div>
+			<div>
+				GET
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected data format:</h4>
+			</div>
+			<div>
+				None
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected response format:</h4>
+			</div>
+			<div>
+				<p class="nogap">JSON object containing data on a movie genre (Name, Description).</p>
+				<p class="nogap">Example: <span class="ex">{
+						Name: "Action",
+						Description: "Physical action takes precedence in the storytelling. The film will often have continuous motion and action including physical stunts, chases, fights, battles, and races. The story usually revolves around a hero that has a goal, but is facing incredible odds to obtain it"
+						}</span>
+				</p>
+			</div>
+		</div>
+		<hr>
+		<!--items-->
+		<div class="flex-body">
+			<div>
+				<h4>Endpoint URL:</h4>
+			</div>
+			<div>
+				/movies/[dir]
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Description:</h4>
+			</div>
+			<div>
+				Retrieves data for a director in the registry by name
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Method:</h4>
+			</div>
+			<div>
+				GET
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected data format:</h4>
+			</div>
+			<div>
+				None
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected response format:</h4>
+			</div>
+			<div>
+				<p class="nogap">JSON object containing data about a specific director (Name, Bio, DOB, DOD).</p>
+				<p class="nogap">Example: <span class="ex">{
+						Name: "Chad Stahelski",
+						Bio: "Chad Stahelski is an American stuntman and film director. He is known for directing the 2014 film John Wick along with David Leitch, and solo directing its two sequels. Stahelski also doubled for Brandon Lee after the fatal accident involving Lee on the set of The Crow and replaced Lee in the film.",
+						Birth: "20 September 1968",
+						Death: "n/a"
+						}</span>
+				</p>
+			</div>
+		</div>
+		<hr>
+
+		<!--items-->
+		<div class="flex-body">
+			<div>
+				<h4>Endpoint URL:</h4>
+			</div>
+			<div>
+				/register/user
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Description:</h4>
+			</div>
+			<div>
+				Add a new user to the registry with a unique indentifier
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Method:</h4>
+			</div>
+			<div>
+				POST
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected data format:</h4>
+			</div>
+			<div>
+				<p class="nogap">JSON object holding data about a user to add.</p>
+				<p class="nogap">Example: <span class="ex">{
+						username: "MrMovie",
+						password: "IL0v3F1lm5",
+						email: "mrmovie@gmail.com",
+						dob: "05/06/1984"
+						}</span>
+				</p>
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected response format:</h4>
+			</div>
+			<div>
+				<p class="nogap">JSON object holding data about a user to add.</p>
+				<p class="nogap">Example: <span class="ex">{
+						id:001,
+						username: "MrMovie",
+						password: "IL0v3F1lm5",
+						email: "mrmovie@gmail.com",
+						dob: "05/06/1984"
+						}</span>
+				</p>
+			</div>
+		</div>
+		<hr>
+
+		<!--items-->
+		<div class="flex-body">
+			<div>
+				<h4>Endpoint URL:</h4>
+			</div>
+			<div>
+				/update/user/[id]
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Description:</h4>
+			</div>
+			<div>
+				Update a user's information
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Method:</h4>
+			</div>
+			<div>
+				PUT
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected data format:</h4>
+			</div>
+			<div>
+				<p class="nogap">JSON object holding data about a user to add.</p>
+				<p class="nogap">Example: <span class="ex">{
+						username: "MrMovie",
+						password: "IL0v3F1lm5",
+						email: "mrmovie@gmail.com",
+						dob: "05/06/1984"
+						}</span>
+				</p>
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected response format:</h4>
+			</div>
+			<div>
+				<p class="nogap">Text response to notify the user the update was successful
+				</p>
+			</div>
+		</div>
+		<hr>
+
+		<!--items-->
+		<div class="flex-body">
+			<div>
+				<h4>Endpoint URL:</h4>
+			</div>
+			<div>
+				/favourites/[id]/[title]
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Description:</h4>
+			</div>
+			<div>
+				Add a favourite movie to the user's favourite list
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Method:</h4>
+			</div>
+			<div>
+				POST
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected data format:</h4>
+			</div>
+			<div>
+				None
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected response format:</h4>
+			</div>
+			<div>
+				<p class="nogap">Text response to notify the user the movie has been added to their favourites list
+				</p>
+			</div>
+		</div>
+		<hr>
+
+		<!--items-->
+		<div class="flex-body">
+			<div>
+				<h4>Endpoint URL:</h4>
+			</div>
+			<div>
+				/favourites/[id]/[title]
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Description:</h4>
+			</div>
+			<div>
+				Remove a favourite movie from the user's favourite list
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Method:</h4>
+			</div>
+			<div>
+				DELETE
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected data format:</h4>
+			</div>
+			<div>
+				None
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected response format:</h4>
+			</div>
+			<div>
+				<p class="nogap">Text response to notify the user the movie has been removed from their favourites list
+				</p>
+			</div>
+		</div>
+		<hr>
+
+		<!--items-->
+		<div class="flex-body">
+			<div>
+				<h4>Endpoint URL:</h4>
+			</div>
+			<div>
+				/register/user/[id]
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Description:</h4>
+			</div>
+			<div>
+				Remove a user from the registry
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Method:</h4>
+			</div>
+			<div>
+				DELETE
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected data format:</h4>
+			</div>
+			<div>
+				None
+			</div>
+		</div>
+		<div class="flex-body">
+			<div>
+				<h4>Expected response format:</h4>
+			</div>
+			<div>
+				<p class="nogap">Text response to notify the user they have successfully removed their profile
+				</p>
+			</div>
+		</div>
+		<hr>
 	</div>
-	<div class="l-center">
-		<div>
-			<h2>Endpoints</h2>
-		</div>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<h4>Endpoint URL:</h4>
-						</td>
-						<td>/movies</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Description:</h4>
-						</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Method:</h4>
-						</td>
-						<td>GET</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Query parameter:</h4>
-						</td>
-						<td>None</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected data format:</h4>
-						</td>
-						<td>
-							<p class="nogap">JSON Object:</p>
-							<p class="nogap">Example:</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected response format:</h4>
-						</td>
-						<td>Response format</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<hr>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<h4>Endpoint URL:</h4>
-						</td>
-						<td>/movies/[title]</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Description:</h4>
-						</td>
-						<td>Retrieve information on a single movie by title</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Method:</h4>
-						</td>
-						<td>GET</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Query parameter:</h4>
-						</td>
-						<td>None</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected data format:</h4>
-						</td>
-						<td>
-							<p class="nogap">JSON Object:</p>
-							<p class="nogap">Example:</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected response format:</h4>
-						</td>
-						<td>Response format</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<hr>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<h4>Endpoint URL:</h4>
-						</td>
-						<td>/movies/[genre]</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Description:</h4>
-						</td>
-						<td>Retreieve information about a single genre by type</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Method:</h4>
-						</td>
-						<td>GET</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Query parameter:</h4>
-						</td>
-						<td>None</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected data format:</h4>
-						</td>
-						<td>
-							<p class="nogap">JSON Object:</p>
-							<p class="nogap">Example:</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected response format:</h4>
-						</td>
-						<td>Response format</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<hr>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<h4>Endpoint URL:</h4>
-						</td>
-						<td>/movies/dir/[name]</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Description:</h4>
-						</td>
-						<td>Retrieve information about a single director by name</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Method:</h4>
-						</td>
-						<td>GET</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Query parameter:</h4>
-						</td>
-						<td>None</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected data format:</h4>
-						</td>
-						<td>
-							<p class="nogap">JSON Object:</p>
-							<p class="nogap">Example:</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected response format:</h4>
-						</td>
-						<td>Response format</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<hr>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<h4>Endpoint URL:</h4>
-						</td>
-						<td>/register/user</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Description:</h4>
-						</td>
-						<td>Add a new user to the database and assign a unique id</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Method:</h4>
-						</td>
-						<td>POST</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Query parameter:</h4>
-						</td>
-						<td>None</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected data format:</h4>
-						</td>
-						<td>Ex body request</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected response format:</h4>
-						</td>
-						<td>Response format</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<hr>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<h4>Endpoint URL:</h4>
-						</td>
-						<td>/update/user/[id]</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Description:</h4>
-						</td>
-						<td>Update a user's information</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Method:</h4>
-						</td>
-						<td>PUT</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Query parameter:</h4>
-						</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected data format:</h4>
-						</td>
-						<td>Ex body request</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected response format:</h4>
-						</td>
-						<td>Text response to notify the user the update was successful</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<hr>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<h4>Endpoint URL:</h4>
-						</td>
-						<td>/favourites/[id]/[title]</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Description:</h4>
-						</td>
-						<td>Update a user's information</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Method:</h4>
-						</td>
-						<td>POST</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Query parameter:</h4>
-						</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected data format:</h4>
-						</td>
-						<td>Ex body request</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected response format:</h4>
-						</td>
-						<td>Text response to notify the user the movie has been added to their favourites list</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<hr>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<h4>Endpoint URL:</h4>
-						</td>
-						<td>/favourites/[id]/[title]</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Description:</h4>
-						</td>
-						<td>Update a user's information</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Method:</h4>
-						</td>
-						<td>DELETE/td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Query parameter:</h4>
-						</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected data format:</h4>
-						</td>
-						<td>Ex body request</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected response format:</h4>
-						</td>
-						<td>Text response to notify the user the movie has been removed from their favourites list</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<hr>
-		<div>
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<h4>Endpoint URL:</h4>
-						</td>
-						<td>/register/user/[id]</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Description:</h4>
-						</td>
-						<td>Update a user's information</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Method:</h4>
-						</td>
-						<td>DELETE/td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Query parameter:</h4>
-						</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected data format:</h4>
-						</td>
-						<td>Ex body request</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>Expected response format:</h4>
-						</td>
-						<td>Text response to notify the user they have successfully removed their profile</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
 
-	</div>
-	<footer>
-
-		<img class="banner" src="../img/welcom_to_the_party.png">
-
+	<footer class="flex-footer">
+		<h6>
+			Find me on twitter @darksav10r
+		</h6>
 	</footer>
 
 </body>
