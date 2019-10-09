@@ -1,29 +1,54 @@
-
 body {
 	background-color: #f1f1f1;
 	font-family: 'Comfortaa', cursive;
 	color: #494949;
 }
 
-h1 {
+h1,
+h2,
+h3, {
 	letter-spacing: 0.2em;
 	color: #191919;
+}
+
+h4 {
+	text-decoration: underline;
+	margin: 0;
+	
 }
 
 p {
 	line-height: 1.5em
 }
 
+p.nogap {
+	margin: 0px;
+	padding: 0px;
+	line-height: 20px;
+	text-align: ;
+}
+
+table {
+	padding: 10px 0;
+}
+td {padding: 6px;
+vertical-align: top}
+
 .c-text {
 	text-align: center;
 }
 
-.banner {
+.banner,
+.l-center {
 	display: block;
 	margin: 0 auto;
-	padding:20px;
+	padding: 20px;
 	width: 100%;
 	max-width: 950px;
 	min-width: 360;
+
+}
+
+.banner {
 	border-radius: 40px;
 }
