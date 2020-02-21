@@ -183,11 +183,7 @@ app.post('/users/:Username/Movies/:_id', function (req, res) {
             }
         })
 });
-/*
-app.delete('/favourites/id/title', function (req, res) {
-    res.send("Movie successfully removed from favourites.");
-});
-*/
+
 // remove movie from user favourite
 app.delete('/users/:Username/Movies/:_id', function (req, res) {
     Users.findOneAndUpdate({
@@ -230,5 +226,5 @@ app.delete('/users/:Username', function (req, res) {
 });
 // listening for requests
 app.listen(8080, () =>
-    console.log('MyFlix is listening on port 8080.')
+    console.log('MyFlix is ready to rock on port 8080.')
 );
