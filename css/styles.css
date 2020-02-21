@@ -1,64 +1,63 @@
 body {
-	background-color: #f1f1f1;
-	font-family: 'Comfortaa', cursive;
-	color: #494949;
+    background-color: #f1f1f1;
+    font-family: 'Comfortaa', cursive;
+    color: #494949;
+    line-height: 25px
 }
 
 h1,
 h2,
 h3,
-	{
-	letter-spacing: 0.2em;
-	color: #191919;
+    {
+    letter-spacing: 0.2em;
+    color: #191919;
 }
 
 h4 {
-	text-decoration: underline;
-	margin: 0;
+    text-decoration: underline;
+    margin: 0;
 }
 
 p {
-	line-height: 1.5em
+    line-height: 1.5em
 }
 
 p.nogap {
-	margin: 0px;
-	padding: 0px;
-	line-height: 20px;
-	text-align: ;
+    margin: 0px;
+    padding: 0px;
+    line-height: 20px;
+    text-align: ;
 }
 
-
-
 .ex {
-	color: #1565C0;
+    color: #1565C0;
 }
 
 .container {
-	display: block;
-	margin: 0 auto;
-	width: 100%;
-	max-width: 920px;
-	min-width: 320px;
-	text-align: left;
-
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 920px;
+    min-width: 320px;
+    text-align: left;
+    word-break: break-word
 }
 
 .flex-header,
 .flex-footer {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-content: flex-start;
-	justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
 }
 
 .flex-body {
-	display:flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .flex-body div {
-	margin: 10px 10px 10px 0
+    margin: 10px 10px 10px 0;
 }
