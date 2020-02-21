@@ -109,7 +109,7 @@ app.get('/movies/director/:Name', function (req, res) {
         });
 });
 
-//add new user
+// Add new user
 app.post('/users', function (req, res) {
     Users.findOne({
             Username: req.body.Username
@@ -139,6 +139,8 @@ app.post('/users', function (req, res) {
         });
 });
 
+
+// Update user
 app.put('/users/:Username', function (req, res) {
     Users.findOneAndUpdate({
             Username: req.params.Username
