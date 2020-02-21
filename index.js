@@ -54,21 +54,6 @@ app.get('/movies/:Title', function (req, res) {
         });
 });
 
-//Get genre by name
-//NOT CURRENTLY WORKING
-app.get('/movies/genre/:Name', function (req, res) {
-    Movies.findOne({
-            "Genre.Name": req.params.Name
-        })
-        .then(function (movies) {
-            res.json(movies.genre);
-        })
-        .catch(function (err) {
-            console.error(err);
-            res.status(500).send("Error: " + err);
-        });
-});
-
 // Get all users
 app.get('/users', function (req, res) {
     Users.find()
@@ -88,6 +73,20 @@ app.get('/users/:Username', function (req, res) {
         })
         .then(function (user) {
             res.json(user)
+        })
+        .catch(function (err) {
+            console.error(err);
+            res.status(500).send("Error: " + err);
+        });
+});
+
+//Get genre by name
+app.get('/movies/genre/:Name', function (req, res) {
+    Movies.findOne({
+            "Genre.Name": req.params.Name
+        })
+        .then(function (movies) {
+            res.json(movies.Genre);
         })
         .catch(function (err) {
             console.error(err);
@@ -139,7 +138,6 @@ app.post('/users', function (req, res) {
         });
 });
 
-
 // Update user
 app.put('/users/:Username', function (req, res) {
     Users.findOneAndUpdate({
@@ -165,8 +163,26 @@ app.put('/users/:Username', function (req, res) {
         })
 });
 
+// Delete a user by Username
+app.delete('/users/:Username', function (req, res) {
+    Users.findOneAndRemove({
+            Username: req.params.Username
+        })
+        .then(function (user) {
+            if (!user) {
+                res.status(400).send(req.params.Username + " was not found");
+            } else {
+                res.status(200).send(req.params.Username + " was deleted.");
+            }
+        })
+        .catch(function (err) {
+            console.error(err);
+            res.status(500).send("Error: " + err);
+        });
+});
+
 // Add a movie to a user's list of favorites
-app.post('/users/:Username/Movies/:_id', function (req, res) {
+app.post('/users/:Username/movies/:_id', function (req, res) {
     Users.findOneAndUpdate({
             Username: req.params.Username
         }, {
@@ -187,8 +203,8 @@ app.post('/users/:Username/Movies/:_id', function (req, res) {
         })
 });
 
-// remove movie from user favourite
-app.delete('/users/:Username/Movies/:_id', function (req, res) {
+// Remove movie from user favourite
+app.delete('/users/:Username/movies/:_id', function (req, res) {
     Users.findOneAndUpdate({
             Username: req.params.Username
         }, {
@@ -210,23 +226,6 @@ app.delete('/users/:Username/Movies/:_id', function (req, res) {
     );
 });
 
-// Delete a user by Username
-app.delete('/users/:Username', function (req, res) {
-    Users.findOneAndRemove({
-            Username: req.params.Username
-        })
-        .then(function (user) {
-            if (!user) {
-                res.status(400).send(req.params.Username + " was not found");
-            } else {
-                res.status(200).send(req.params.Username + " was deleted.");
-            }
-        })
-        .catch(function (err) {
-            console.error(err);
-            res.status(500).send("Error: " + err);
-        });
-});
 // listening for requests
 app.listen(8080, () =>
     console.log('MyFlix is ready to rock on port 8080.')
