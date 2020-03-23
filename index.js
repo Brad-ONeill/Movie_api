@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-const Models = require('./js/models.js');
+const Models = require('./models.js');
+
+const passport = require('passport');
+require('./passport');
 
 const Movies = Models.Movie;
 const Users = Models.User;
@@ -20,6 +23,8 @@ app.use(express.static('public'));
 app.use(morgan('common'));
 
 app.use(bodyParser.json());
+
+var auth = require('./auth')(app);
 
 app.use(function (err, req, res, next) {
     console.error(err.stack);
