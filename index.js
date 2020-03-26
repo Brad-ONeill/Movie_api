@@ -290,6 +290,7 @@ app.delete('/users/:Username/movies/:_id', passport.authenticate('jwt', {
 });
 
 // listening for requests
-app.listen(8080, () =>
-    console.log('MyFlix is ready to rock on port 8080.')
-);
+var port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", function () {
+    console.log(`Listening on Port ${port}`);
+});
