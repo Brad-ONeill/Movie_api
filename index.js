@@ -19,6 +19,10 @@ const
     app = express();
 const
     cors = require('cors');
+const {
+    check,
+    validationResult
+} = require('express-validator');
 
 mongoose.connect('mongodb://localhost:27017/myflixdb', {
     useNewUrlParser: true
@@ -144,7 +148,22 @@ app.get('/movies/director/:Name', passport.authenticate('jwt', {
 });
 
 // Add new user
-app.post('/users', function (req, res) {
+app.post('/users', [check('Username', 'Username is required').isLength({
+        min: 5
+    }),
+  check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  check('Password', 'Password is required').not().isEmpty(),
+  check('Email', 'Email does not appear to be valid').isEmail()], function (req, res) {
+
+    //check for validation object errors
+    var errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(422).json({
+            errors: errors.array()
+        });
+    }
+
     var hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOne({
             Username: req.body.Username
