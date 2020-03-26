@@ -1,28 +1,46 @@
-const mongoose = require('mongoose');
-const Models = require('./models.js');
-
-const passport = require('passport');
+//Dependancies
+const
+    mongoose = require('mongoose');
+const
+    Models = require('./models.js');
+const
+    passport = require('passport');
 require('./passport');
-
-const Movies = Models.Movie;
-const Users = Models.User;
-
-const express = require('express'),
+const
+    Movies = Models.Movie;
+const
+    Users = Models.User;
+const
+    express = require('express'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     uuid = require('uuid/v5');
-
-const app = express();
+const
+    app = express();
+const
+    cors = require('cors');
 
 mongoose.connect('mongodb://localhost:27017/myflixdb', {
     useNewUrlParser: true
 });
 
+//Middleware
 app.use(express.static('public'));
-
 app.use(morgan('common'));
-
 app.use(bodyParser.json());
+
+var allowedOrigins = ['*'];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) { // If a specific origin isn’t found on the list of allowed origins
+            var message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
+            return callback(new Error(message), false);
+        }
+        return callback(null, true);
+    }
+}));
 
 var auth = require('./auth')(app);
 
@@ -127,6 +145,7 @@ app.get('/movies/director/:Name', passport.authenticate('jwt', {
 
 // Add new user
 app.post('/users', function (req, res) {
+    var hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOne({
             Username: req.body.Username
         })
@@ -137,7 +156,7 @@ app.post('/users', function (req, res) {
                 Users
                     .create({
                         Username: req.body.Username,
-                        Password: req.body.Password,
+                        Password: hashedPassword,
                         Email: req.body.Email,
                         Birthday: req.body.Birthday
                     })
