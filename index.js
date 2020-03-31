@@ -28,7 +28,7 @@ const {
 
 mongoose.connect('mongodb+srv://'+process.env.Userpass+'@darksdb-dkyuz.mongodb.net/darksdb?retryWrites=true&w=majority', {
     useNewUrlParser: true,
-    
+    useUnifiedTopology: true,
 })
 
 /*mongoose.connect('mongodb://localhost:27017/myflixdb', {
@@ -299,7 +299,7 @@ app.delete('/users/:Username/movies/:_id', passport.authenticate('jwt', {
 
 
 // listening for requests
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 19895;
 app.listen(port, "0.0.0.0", function () {
     console.log(`Listening on Port ${port}`);
 });
