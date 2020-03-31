@@ -920,3 +920,4 @@ node_modules/sparse-bitfield/README.md
 node_modules/sparse-bitfield/test.js
 exported_collections/movies.json
 exported_collections/users.json
+node_modules
