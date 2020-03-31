@@ -26,7 +26,7 @@ const {
 
 
 
-mongoose.connect('process.env.CONNECTION_URI', {
+mongoose.connect('mongodb+srv://' + process.env.userpass + '@darksdb-dkyuz.mongodb.net/darksdb?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
