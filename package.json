@@ -6,6 +6,9 @@
     "scripts": {
         "start": "node index.js"
     },
+    "engines": {
+        "node": "12.11.1"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Brad-ONeill/Movie_api.git"
