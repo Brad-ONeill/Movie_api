@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node index.js"
     },
-    "web": "node dist/server/index.js"
+    "web": "node dist/server/index.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Brad-ONeill/Movie_api.git"
