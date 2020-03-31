@@ -26,9 +26,9 @@ const {
 
 
 
-mongoose.connect('process.env.CONNECTION_URI', {
+mongoose.connect('mongodb+srv://'+process.env.Userpass+'@darksdb-dkyuz.mongodb.net/darksdb?retryWrites=true&w=majority', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    
 })
 
 /*mongoose.connect('mongodb://localhost:27017/myflixdb', {
