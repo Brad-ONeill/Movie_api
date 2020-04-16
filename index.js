@@ -64,9 +64,7 @@ app.use(function (err, req, res, next) {
 // --- app requests ---
 
 // Get all movies
-app.get('/movies', passport.authenticate('jwt', {
-    session: false
-}), function (req, res) {
+app.get('/movies', function (req, res) {
     Movies.find()
         .then(function (movies) {
             res.status(201).json(movies)
@@ -202,7 +200,9 @@ app.post('/users', [check('Username', 'Username is required').isLength({
 });
 
 // Update user
-app.put('/users/:Username', function (req, res) {
+app.put('/users/:Username', passport.authenticate('jwt', {
+    session: false
+}), function (req, res) {
     Users.findOneAndUpdate({
             Username: req.params.Username
         }, {
