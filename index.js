@@ -202,9 +202,7 @@ app.post('/users', [check('Username', 'Username is required').isLength({
 });
 
 // Update user
-app.put('/users/:Username', passport.authenticate('jwt', {
-    session: false
-}), function (req, res) {
+app.put('/users/:Username', function (req, res) {
     Users.findOneAndUpdate({
             Username: req.params.Username
         }, {
