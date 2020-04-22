@@ -1,19 +1,20 @@
-$primary-color: #6200EE;
-$secondary-colour: #8BEE00;
+$primary-color: #94a1f6;
+$secondary-colour: #e994f6;
 $font-light: #FFFFFF;
 $font-dark: #000000;
+$border: 1px solid #f6b894;
 
 .login-form {
-    background: #6200EE;
+    background: $primary-color;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
-    color: #FFFFFF;
+    color: $font-dark;
     display: block;
     margin: 0 auto;
     width: 100%;
     max-width: 350px;
     height: 100%;
-    border: 1px solid;
+    border: $border;
     border-radius: 70px;
     padding: 20px;
 }
@@ -35,10 +36,11 @@ label{
 }
 
 .login-button {
-    background: #8BEE00;
-    color: #000000;
+    background: $secondary-colour;
+    color: $font-dark;
     display: block;
     margin: 20px auto 0;
+    border: $border;
     border-radius: 10px;
     width: 40%;
     padding: 5px 0;
