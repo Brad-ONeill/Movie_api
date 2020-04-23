@@ -1,20 +1,21 @@
-$primary-color: #94a1f6;
-$secondary-colour: #e994f6;
-$font-light: #FFFFFF;
-$font-dark: #000000;
-$border: 1px solid #f6b894;
+$primary-color: #47bae0;
+$complimentary-color: #e06d47;
+$secondary-color: #47e0ba;
+$font-light: #F0F0F0;
+$font-dark: #2e2e2e;
+$border: 1px solid #e06d47;
 
 .login-form {
     background: $primary-color;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 18px;
-    color: $font-dark;
+    color: $font-light;
     display: block;
     margin: 0 auto;
     width: 100%;
     max-width: 350px;
     height: 100%;
-    border: $border;
+    border: 0;
     border-radius: 70px;
     padding: 20px;
 }
@@ -36,7 +37,7 @@ label{
 }
 
 .login-button {
-    background: $secondary-colour;
+    background: $secondary-color;
     color: $font-dark;
     display: block;
     margin: 20px auto 0;
