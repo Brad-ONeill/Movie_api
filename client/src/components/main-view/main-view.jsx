@@ -15,7 +15,7 @@ export class MainView extends React.Component {
         this.state = {
             movies: null,
             selectedMovie: null,
-            user: null //user default prop set to null (logged out)
+            user: "UserName" //user default prop should be set to null (logged out)
         };
     }
 
