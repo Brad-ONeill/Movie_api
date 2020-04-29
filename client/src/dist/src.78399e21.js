@@ -31751,16 +31751,20 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           movie = _this$props.movie,
           _onClick = _this$props.onClick;
-      return _react.default.createElement("cardContainer", {
-        className: "cardContainer"
+      return _react.default.createElement("div", {
+        className: "flexbox"
       }, _react.default.createElement(_Card.default, {
         className: "movieCard"
       }, _react.default.createElement(_Card.default.Img, {
         className: "imageCard",
         variant: "top",
         src: movie.ImagePath
-      }), _react.default.createElement(_Card.default.Body, null, _react.default.createElement(_Card.default.Title, null, movie.Title), _react.default.createElement(_Card.default.Text, null, ">", movie.Description), _react.default.createElement(_Button.default, {
-        className: "button",
+      }), _react.default.createElement(_Card.default.Body, null, _react.default.createElement(_Card.default.Title, {
+        className: "cardTitle"
+      }, movie.Title), _react.default.createElement(_Card.default.Text, {
+        className: "cardText"
+      }, movie.Description), _react.default.createElement(_Button.default, {
+        className: "button col-8",
         onClick: function onClick() {
           return _onClick(movie);
         },
@@ -32107,7 +32111,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56374" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63750" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

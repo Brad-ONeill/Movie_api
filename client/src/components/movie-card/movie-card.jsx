@@ -10,16 +10,16 @@ export class MovieCard extends React.Component {
         const { movie, onClick } = this.props;
 
         return (
-            <cardContainer className="cardContainer">
+            <div className="flexbox">
                 <Card className="movieCard">
                     <Card.Img className="imageCard" variant="top" src={movie.ImagePath} />
                     <Card.Body>
-                        <Card.Title>{movie.Title}</Card.Title>
-                        <Card.Text>>{movie.Description}</Card.Text>
-                        <Button className="button" onClick={() => onClick(movie)} variant="link">Open</Button>
+                        <Card.Title className="cardTitle">{movie.Title}</Card.Title>
+                        <Card.Text className="cardText">{movie.Description}</Card.Text>
+                        <Button className="button col-8" onClick={() => onClick(movie)} variant="link">Open</Button>
                     </Card.Body>
                 </Card>
-            </cardContainer>
+            </div>
         );
     }
 }

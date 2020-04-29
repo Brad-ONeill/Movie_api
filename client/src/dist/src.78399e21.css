@@ -39,20 +39,22 @@ label {
   width: 40%;
   padding: 5px 0;
 }
-.cardContainer {
-  display: inline-flex;
-  justify-content: space-evenly;
-  margin: 0 auto;
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 .movieCard {
-  display: flex;
   background-color: #47bae0;
   border: 1px solid #e06d47;
   width: 100%;
   max-width: 20rem;
   min-width: 10rem;
   border-radius: 20px;
+  margin: 4px;
 }
 
 .imageCard {
@@ -61,16 +63,31 @@ label {
   object-fit: cover;
 }
 
+.cardTitle {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 3rem;
+}
+
+.cardText {
+  display: flex;
+  overflow: hidden;
+  height: 22rem;
+}
+
 .button {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   border: 2px solid #2e2e2e;
   background-color: #47e0ba;
-  width: 100%;
   font-weight: 600;
   color: #2e2e2e;
   text-decoration: underline;
 }
-.my-flix {
-  color: steelblue;
+body {
+  background: #666666;
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */
