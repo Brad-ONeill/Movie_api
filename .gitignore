@@ -1,4 +1,5 @@
 
+client/.cache
 node_modules/vary/README.md
 node_modules/vary/package.json
 node_modules/vary/LICENSE
@@ -25604,4 +25605,4 @@ client/node_modules/bootstrap/dist/css/bootstrap-grid.min.css.map
 client/node_modules/bootstrap/dist/css/bootstrap-grid.min.css
 client/node_modules/bootstrap/dist/css/bootstrap-grid.css.map
 client/node_modules/bootstrap/dist/css/bootstrap-grid.css
-client/.cache
+
