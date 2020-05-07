@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './movie-view.scss'; //import styling
+
 export class MovieView extends React.Component {
 
     constructor() {
@@ -14,28 +16,34 @@ export class MovieView extends React.Component {
         if (!movie) return null;
 
         return (
-            <div className="movie-view">
-                <img className="movie-poster" src={movie.ImagePath} />
-                <div className="movie-title">
-                    <span className="label">Title: </span>
-                    <span className="value">{movie.Title}</span>
-                </div>
-                <div className="movie-description">
-                    <span className="label">Description: </span>
-                    <span className="value">{movie.Description}</span>
+            <div className="container col-12">
+
+                <div className="image col-sm-6 col-lg-6">
+
+                    <img className="col-sm-12" src={movie.ImagePath} />
+
                 </div>
 
-                <div className="movie-genre">
-                    <span className="label">Genre: </span>
-                    <span className="value">{movie.Genre.Name}</span>
+                <div className="txtCont col-sm-6 col-lg-6">
+
+                    <span className="mTitle">{movie.Title}</span>
+
+                    <span className="label">Genre:</span>
+                    <span className="bodyText">{movie.Genre.Name}</span>
+
+                    <span className="label">Description: </span>
+                    <span className="bodyText">{movie.Description}</span>
+
+                    <span className="label">Director:</span>
+                    <span className="bodyText">{movie.Director.Name}</span>
+
+                    <div>
+                        <button className="backBut" onClick={() => location.reload()} >Back to all movies</button>
+                    </div>
+
                 </div>
-                <div className="movie-director">
-                    <span className="label">Director: </span>
-                    <span className="value">{movie.Director.Name}</span>
-                </div>
-                <div>
-                    <button onClick={() => location.reload()} >Go back to Movies</button>
-                </div>
+
+
             </div>
         );
     }
