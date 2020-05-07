@@ -31792,7 +31792,12 @@ MovieCard.propTypes = {
   }).isRequired,
   onClick: _propTypes.default.func.isRequired
 };
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","./movie-card.scss":"components/movie-card/movie-card.scss"}],"components/movie-view/movie-view.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","./movie-card.scss":"components/movie-card/movie-card.scss"}],"components/movie-view/movie-view.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"C:/Users/darks/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/movie-view/movie-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31801,6 +31806,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.MovieView = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+require("./movie-view.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31826,6 +31833,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+//import styling
 var MovieView = /*#__PURE__*/function (_React$Component) {
   _inherits(MovieView, _React$Component);
 
@@ -31847,39 +31855,34 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       var movie = this.props.movie;
       if (!movie) return null;
       return _react.default.createElement("div", {
-        className: "movie-view"
+        className: "container col-12"
+      }, _react.default.createElement("div", {
+        className: "image col-sm-6 col-lg-6"
       }, _react.default.createElement("img", {
-        className: "movie-poster",
+        className: "col-sm-12",
         src: movie.ImagePath
-      }), _react.default.createElement("div", {
-        className: "movie-title"
+      })), _react.default.createElement("div", {
+        className: "txtCont col-sm-6 col-lg-6"
       }, _react.default.createElement("span", {
+        className: "mTitle"
+      }, movie.Title), _react.default.createElement("span", {
         className: "label"
-      }, "Title: "), _react.default.createElement("span", {
-        className: "value"
-      }, movie.Title)), _react.default.createElement("div", {
-        className: "movie-description"
-      }, _react.default.createElement("span", {
+      }, "Genre:"), _react.default.createElement("span", {
+        className: "bodyText"
+      }, movie.Genre.Name), _react.default.createElement("span", {
         className: "label"
       }, "Description: "), _react.default.createElement("span", {
-        className: "value"
-      }, movie.Description)), _react.default.createElement("div", {
-        className: "movie-genre"
-      }, _react.default.createElement("span", {
+        className: "bodyText"
+      }, movie.Description), _react.default.createElement("span", {
         className: "label"
-      }, "Genre: "), _react.default.createElement("span", {
-        className: "value"
-      }, movie.Genre.Name)), _react.default.createElement("div", {
-        className: "movie-director"
-      }, _react.default.createElement("span", {
-        className: "label"
-      }, "Director: "), _react.default.createElement("span", {
-        className: "value"
-      }, movie.Director.Name)), _react.default.createElement("div", null, _react.default.createElement("button", {
+      }, "Director:"), _react.default.createElement("span", {
+        className: "bodyText"
+      }, movie.Director.Name), _react.default.createElement("div", null, _react.default.createElement("button", {
+        className: "backBut",
         onClick: function onClick() {
           return location.reload();
         }
-      }, "Go back to Movies")));
+      }, "Back to all movies"))));
     }
   }]);
 
@@ -31887,7 +31890,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
 }(_react.default.Component);
 
 exports.MovieView = MovieView;
-},{"react":"../node_modules/react/index.js"}],"components/main-view/main-view.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./movie-view.scss":"components/movie-view/movie-view.scss"}],"components/main-view/main-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31970,7 +31973,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
     key: "onMovieClick",
     value: function onMovieClick(movie) {
       this.setState({
-        selectedMovie: null
+        selectedMovie: movie
       });
     }
   }, {
@@ -32111,7 +32114,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63750" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56180" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
