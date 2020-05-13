@@ -28,14 +28,7 @@ MovieCard.propTypes = {
     movie: PropTypes.shape({
         Title: PropTypes.string,
         Description: PropTypes.string,
-        Director: PropTypes.exact({
-            Name: PropTypes.string
-        }),
         ImagePath: PropTypes.string,
-        Genre: PropTypes.exact({
-            Name: PropTypes.string,
-            Description: PropTypes.string
-        })
     }).isRequired,
     onClick: PropTypes.func.isRequired
 };

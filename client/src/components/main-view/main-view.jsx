@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -16,7 +15,7 @@ export class MainView extends React.Component {
             movies: null,
             selectedMovie: null,
             user: null, //user default prop should be set to null (logged out)
-            register: false
+            register: true
         };
     }
 
@@ -45,12 +44,21 @@ export class MainView extends React.Component {
         });
     }
 
+    onRegistered() {
+        this.setState({
+            register: false,
+            user: 'brad'
+        });
+    }
+
     render() {
         const { movies, selectedMovie, user, register } = this.state;
 
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        console.log(this.state)
+
+        if (!user) return <LoginView register={() => this.onRegistered()} onLoggedIn={user => this.onLoggedIn(user)} />;
         if (!movies) return <div className="main-view" />;
-        if (!register) return <RegistrationView />
+        if (!register) return <RegistrationView onRegistered={this.onRegistered} />
 
         return (
             <div className="main-view">
