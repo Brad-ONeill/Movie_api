@@ -46011,33 +46011,41 @@ function RegistrationView(props) {
     });
   };
 
-  return _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Form, null, _react.default.createElement(_reactBootstrap.Form.Group, {
-    controlId: "formBasicUsername"
+  return _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Form, null, _react.default.createElement(_reactBootstrap.Form.Row, null, _react.default.createElement(_reactBootstrap.Form.Group, {
+    as: _reactBootstrap.Col,
+    className: "col-12 col-sm-12 col-md-6",
+    controlId: "username"
   }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Username"), _react.default.createElement(_reactBootstrap.Form.Control, {
     type: "text",
     placeholder: "Username"
   })), _react.default.createElement(_reactBootstrap.Form.Group, {
-    controlId: "formBasicEmail"
+    as: _reactBootstrap.Col,
+    className: "col-12 col-sm-12 col-md-6",
+    controlId: "password"
+  }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Password"), _react.default.createElement(_reactBootstrap.Form.Control, {
+    type: "password",
+    placeholder: "Enter your password"
+  }))), _react.default.createElement(_reactBootstrap.Form.Row, null, _react.default.createElement(_reactBootstrap.Form.Group, {
+    as: _reactBootstrap.Col,
+    className: "col-12 col-sm-12 col-md-6",
+    controlId: "birthday"
+  }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Date of Birth"), _react.default.createElement(_reactBootstrap.Form.Control, {
+    type: "date",
+    placeholder: "13/05/2020"
+  })), _react.default.createElement(_reactBootstrap.Form.Group, {
+    as: _reactBootstrap.Col,
+    className: "col-12 col-sm-12 col-md-6",
+    controlId: "email"
   }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Email address"), _react.default.createElement(_reactBootstrap.Form.Control, {
     type: "email",
     placeholder: "Enter Email"
   }), _react.default.createElement(_reactBootstrap.Form.Text, {
     className: "text-muted"
-  }, " We won't share your info or contact you")), _react.default.createElement(_reactBootstrap.Form.Group, {
-    controlId: "formBasicBirthday"
-  }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Date of Birth"), _react.default.createElement(_reactBootstrap.Form.Control, {
-    type: "date",
-    placeholder: "13/05/2020"
-  })), _react.default.createElement(_reactBootstrap.Form.Group, {
-    controlId: "formBasicPassword"
-  }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Password"), _react.default.createElement(_reactBootstrap.Form.Control, {
-    type: "password",
-    placeholder: "Enter your password"
-  })), _react.default.createElement(_reactBootstrap.Form.Group, {
-    controlId: "formBasicCheckbox"
+  }, " We won't share your info or contact you"))), _react.default.createElement(_reactBootstrap.Form.Group, {
+    controlId: "checkbox"
   }, _react.default.createElement(_reactBootstrap.Form.Check, {
     type: "checkbox",
-    label: "click this for reasons"
+    label: "Check this box to confirm your details are correct"
   })), _react.default.createElement(_reactBootstrap.Button, {
     varient: "primary",
     type: "submit"
