@@ -1,5 +1,6 @@
-
+.cashe
 client/.cache
+client/src/.cache
 node_modules/vary/README.md
 node_modules/vary/package.json
 node_modules/vary/LICENSE
