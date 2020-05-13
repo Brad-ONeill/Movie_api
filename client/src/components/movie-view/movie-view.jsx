@@ -19,31 +19,21 @@ export class MovieView extends React.Component {
             <div className="container col-12">
 
                 <div className="image col-sm-6 col-lg-6">
-
                     <img className="col-sm-12" src={movie.ImagePath} />
-
                 </div>
 
                 <div className="txtCont col-sm-6 col-lg-6">
-
                     <span className="mTitle">{movie.Title}</span>
-
                     <span className="label">Genre:</span>
                     <span className="bodyText">{movie.Genre.Name}</span>
-
                     <span className="label">Description: </span>
                     <span className="bodyText">{movie.Description}</span>
-
                     <span className="label">Director:</span>
                     <span className="bodyText">{movie.Director.Name}</span>
-
                     <div>
                         <button className="backBut" onClick={() => location.reload()} >Back to all movies</button>
                     </div>
-
                 </div>
-
-
             </div>
         );
     }
