@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-//import { RegistrationView } from '../registration-view/registration-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
 
 export class MainView extends React.Component {
@@ -15,7 +15,8 @@ export class MainView extends React.Component {
         this.state = {
             movies: null,
             selectedMovie: null,
-            user: "UserName" //user default prop should be set to null (logged out)
+            user: null, //user default prop should be set to null (logged out)
+            register: false
         };
     }
 
@@ -45,10 +46,11 @@ export class MainView extends React.Component {
     }
 
     render() {
-        const { movies, selectedMovie, user } = this.state;
+        const { movies, selectedMovie, user, register } = this.state;
 
         if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
         if (!movies) return <div className="main-view" />;
+        if (!register) return <RegistrationView />
 
         return (
             <div className="main-view">
