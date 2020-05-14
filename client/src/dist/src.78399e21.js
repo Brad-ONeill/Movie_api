@@ -30166,19 +30166,21 @@ function LoginView(props) {
 
 
   var handleSubmit = function handleSubmit(e) {
-    e.preventDefault(); // Send a request to the server for authentication
+    e.preventDefault();
+    /* Send a request to the server for authentication */
 
     _axios.default.post('https://limitless-thicket-23479.herokuapp.com/login', {
       Username: username,
       Password: password
-    }), then(function (response) {
+    }).then(function (response) {
       var data = response.data;
       props.onLoggedIn(data);
     }).catch(function (e) {
-      console.log('User does not exist');
-    }); //console.log(username, password); 
-    //props.onLoggedIn(username);
-  }; //Return basic form
+      console.log('This user does not exist');
+    });
+  }; //console.log(username, password); 
+  //props.onLoggedIn(username);
+  //Return basic form
 
 
   return _react.default.createElement("form", {
@@ -46303,7 +46305,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62739" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57895" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

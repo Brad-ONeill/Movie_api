@@ -10,21 +10,22 @@ export function LoginView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Send a request to the server for authentication
+        /* Send a request to the server for authentication */
         axios.post('https://limitless-thicket-23479.herokuapp.com/login', {
             Username: username,
             Password: password
         })
-            , then(response => {
+            .then(response => {
                 const data = response.data;
                 props.onLoggedIn(data);
             })
-                .catch(e => {
-                    console.log('User does not exist')
-                });
-        //console.log(username, password); 
-        //props.onLoggedIn(username);
+            .catch(e => {
+                console.log('This user does not exist')
+            });
     };
+    //console.log(username, password); 
+    //props.onLoggedIn(username);
+
 
     //Return basic form
     return (
