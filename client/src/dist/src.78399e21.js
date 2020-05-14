@@ -46153,17 +46153,21 @@ var MainView = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "onLoggedIn",
-    value: function onLoggedIn(user) {
+    value: function onLoggedIn(authData) {
+      console.log(authData);
       this.setState({
-        user: user
+        user: authData.user.Username
       });
+      localStorage.setItem('token', authData.token);
+      localStorage.setItem('user', authData.user.Username);
+      this.getMovies(authData.token);
     }
   }, {
     key: "onRegistered",
     value: function onRegistered() {
       this.setState({
         register: false,
-        user: 'brad'
+        user: 'user'
       });
     }
   }, {
