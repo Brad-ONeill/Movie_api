@@ -30130,7 +30130,11 @@ exports.LoginView = LoginView;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _axios = _interopRequireDefault(require("axios"));
+
 require("./login-view.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -30162,10 +30166,18 @@ function LoginView(props) {
 
 
   var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    console.log(username, password); // Send a request to the server for authentication then call props.onLoggedIn(username)
+    e.preventDefault(); // Send a request to the server for authentication
 
-    props.onLoggedIn(username);
+    _axios.default.post('https://limitless-thicket-23479.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    }), then(function (response) {
+      var data = response.data;
+      props.onLoggedIn(data);
+    }).catch(function (e) {
+      console.log('User does not exist');
+    }); //console.log(username, password); 
+    //props.onLoggedIn(username);
   }; //Return basic form
 
 
@@ -30195,7 +30207,7 @@ function LoginView(props) {
     onClick: props.register
   }, "Register"));
 }
-},{"react":"../node_modules/react/index.js","./login-view.scss":"components/login-view/login-view.scss"}],"../node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","./login-view.scss":"components/login-view/login-view.scss"}],"../node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *

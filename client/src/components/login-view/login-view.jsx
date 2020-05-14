@@ -1,4 +1,5 @@
 import React, { useState } from 'react'; //{useState} to preserve state between renders
+import axios from 'axios';
 
 //Import stylings
 import './login-view.scss';
@@ -9,8 +10,20 @@ export function LoginView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password); // Send a request to the server for authentication then call props.onLoggedIn(username)
-        props.onLoggedIn(username);
+        // Send a request to the server for authentication
+        axios.post('https://limitless-thicket-23479.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        })
+            , then(response => {
+                const data = response.data;
+                props.onLoggedIn(data);
+            })
+                .catch(e => {
+                    console.log('User does not exist')
+                });
+        //console.log(username, password); 
+        //props.onLoggedIn(username);
     };
 
     //Return basic form
