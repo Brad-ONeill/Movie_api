@@ -46,9 +46,6 @@ app.use(cors());
 var auth = require('./auth')(app);
 
 app.use(function (err, req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "*");
-    next();
     console.error(err.stack);
     res.status(500).send('Oops! Sorry about that, something went wrong!');
 });
@@ -155,7 +152,7 @@ app.get('/movies/director/:Name', passport.authenticate('jwt', {
 
 // Add new user
 app.post('/users', [check('Username', 'Username is required').isLength({
-    min: 5
+    min: 4
 }),
 check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
 check('Password', 'Password is required').not().isEmpty(),
