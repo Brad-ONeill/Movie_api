@@ -19,6 +19,16 @@ export class MainView extends React.Component {
     }
 
     componentDidMount() {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getMovies(accessToken);
+        }
+    }
+
+    /*componentDidMount() {
         axios.get('https://limitless-thicket-23479.herokuapp.com/movies')
             .then(response => {
                 // Assign the result to the state
@@ -29,7 +39,7 @@ export class MainView extends React.Component {
             .catch(function (error) {
                 console.log(error);
             });
-    }
+    }*/
 
     onMovieClick(movie) {
         this.setState({
