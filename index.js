@@ -42,9 +42,9 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 
 app.use(cors());
-
-var auth = require('./auth')(app);
 var allowedOrigins = ['*'];
+var auth = require('./auth')(app);
+
 
 app.use(function (err, req, res, next) {
     console.error(err.stack);
