@@ -46237,11 +46237,11 @@ var MainView = /*#__PURE__*/function (_React$Component) {
             return _this3.onMovieClick(movie);
           }
         });
-      })), _react.default.createElement("div", null, " ", _react.default.createElement(_Button.default, {
+      })), _react.default.createElement("div", null, _react.default.createElement(_Button.default, {
         onClick: function onClick() {
           return localStorage.clear(window.location.reload());
         }
-      }, "Logout"), " "));
+      }, "Logout")));
     }
   }]);
 

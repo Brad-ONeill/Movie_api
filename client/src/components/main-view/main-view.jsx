@@ -1,11 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 
+//styles and elemetns
 import Button from 'react-bootstrap/Button';
 
 export class MainView extends React.Component {
@@ -18,6 +21,34 @@ export class MainView extends React.Component {
             user: null, //user default prop should be set to null (logged out)
             register: true
         };
+    }
+
+    onMovieClick(movie) {
+        this.setState({
+            selectedMovie: movie
+        });
+    }
+
+    onRegistered() {
+        this.setState({
+            register: false,
+            user: 'user'
+        });
+    }
+
+    getMovies(token) {
+        axios.get('https://limitless-thicket-23479.herokuapp.com/movies', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+            .then(response => {
+                // Assign the result to the state
+                this.setState({
+                    movies: response.data
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     componentDidMount() {
@@ -43,12 +74,6 @@ export class MainView extends React.Component {
             });
     }*/
 
-    onMovieClick(movie) {
-        this.setState({
-            selectedMovie: movie
-        });
-    }
-
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({
@@ -58,28 +83,6 @@ export class MainView extends React.Component {
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
-    }
-
-    getMovies(token) {
-        axios.get('https://limitless-thicket-23479.herokuapp.com/movies', {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then(response => {
-                // Assign the result to the state
-                this.setState({
-                    movies: response.data
-                });
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-
-    onRegistered() {
-        this.setState({
-            register: false,
-            user: 'user'
-        });
     }
 
     render() {
@@ -99,7 +102,11 @@ export class MainView extends React.Component {
                         ))
                     }
                 </div>
-                <div> <Button onClick={() => localStorage.clear(window.location.reload())}>Logout</Button> </div>
+                <div>
+                    <Button onClick={() => localStorage.clear(window.location.reload())}>
+                        Logout
+                    </Button>
+                </div>
             </div>
         );
     }
