@@ -46,7 +46,9 @@ app.use(cors());
 var auth = require('./auth')(app);
 
 app.use(function (err, req, res, next) {
-    res.header("Access-Control-Allow-Origin, "*");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "*");
+    next();
     console.error(err.stack);
     res.status(500).send('Oops! Sorry about that, something went wrong!');
 });
