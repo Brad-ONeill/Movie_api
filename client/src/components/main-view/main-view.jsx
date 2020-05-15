@@ -6,6 +6,8 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 
+import Button from 'react-bootstrap/Button';
+
 export class MainView extends React.Component {
     constructor() {
         super();
@@ -83,20 +85,21 @@ export class MainView extends React.Component {
     render() {
         const { movies, selectedMovie, user, register } = this.state;
 
-        console.log(this.state)
-
         if (!user) return <LoginView register={() => this.onRegistered()} onLoggedIn={user => this.onLoggedIn(user)} />;
         if (!movies) return <div className="main-view" />;
         if (!register) return <RegistrationView onRegistered={this.onRegistered} />
 
         return (
-            <div className="main-view">
-                {selectedMovie
-                    ? <MovieView movie={selectedMovie} />
-                    : movies.map(movie => (
-                        <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)} />
-                    ))
-                }
+            <div>
+                <div className="main-view">
+                    {selectedMovie
+                        ? <MovieView movie={selectedMovie} />
+                        : movies.map(movie => (
+                            <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)} />
+                        ))
+                    }
+                </div>
+                <div> <Button onClick={() => localStorage.clear(window.location.reload())}>Logout</Button> </div>
             </div>
         );
     }
