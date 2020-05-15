@@ -41,11 +41,12 @@ app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
 
-app.use(cors(Allow-Origin: *));
+app.use(cors());
 
 var auth = require('./auth')(app);
 
 app.use(function (err, req, res, next) {
+    res.header("Access-Control-Allow-Origin, "*");
     console.error(err.stack);
     res.status(500).send('Oops! Sorry about that, something went wrong!');
 });
