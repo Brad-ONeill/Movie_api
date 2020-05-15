@@ -34788,6 +34788,8 @@ var _Button = _interopRequireDefault(require("react-bootstrap/Button"));
 
 var _Card = _interopRequireDefault(require("react-bootstrap/Card"));
 
+var _reactRouterDom = require("react-router-dom");
+
 require("./movie-card.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -34814,7 +34816,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-//import styling
 var MovieCard = /*#__PURE__*/function (_React$Component) {
   _inherits(MovieCard, _React$Component);
 
@@ -34829,12 +34830,8 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
   _createClass(MovieCard, [{
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          movie = _this$props.movie,
-          _onClick = _this$props.onClick;
-      return _react.default.createElement("div", {
-        className: "flexbox"
-      }, _react.default.createElement(_Card.default, {
+      var movie = this.props.movie;
+      return _react.default.createElement(_Card.default, {
         className: "movieCard"
       }, _react.default.createElement(_Card.default.Img, {
         className: "imageCard",
@@ -34844,11 +34841,10 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
         className: "cardTitle"
       }, movie.Title), _react.default.createElement(_Card.default.Text, {
         className: "cardText"
-      }, movie.Description), _react.default.createElement(_Button.default, {
-        className: "button col-8",
-        onClick: function onClick() {
-          return _onClick(movie);
-        },
+      }, movie.Description), _react.default.createElement(_reactRouterDom.Link, {
+        to: "/movies/".concat(movie._id)
+      }, _react.default.createElement(_Button.default, {
+        className: "button",
         variant: "link"
       }, "Open"))));
     }
@@ -34856,6 +34852,25 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
 
   return MovieCard;
 }(_react.default.Component);
+/* export class MovieCard extends React.Component {
+    render() {
+        const { movie, onClick } = this.props;
+
+        return (
+            <div className="flexbox">
+                <Card className="movieCard">
+                    <Card.Img className="imageCard" variant="top" src={movie.ImagePath} />
+                    <Card.Body>
+                        <Card.Title className="cardTitle">{movie.Title}</Card.Title>
+                        <Card.Text className="cardText">{movie.Description}</Card.Text>
+                        <Button className="button col-8" onClick={() => onClick(movie)} variant="link">Open</Button>
+                    </Card.Body>
+                </Card>
+            </div>
+        );
+    }
+} */
+
 
 exports.MovieCard = MovieCard;
 MovieCard.propTypes = {
@@ -34866,7 +34881,7 @@ MovieCard.propTypes = {
   }).isRequired,
   onClick: _propTypes.default.func.isRequired
 };
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","./movie-card.scss":"components/movie-card/movie-card.scss"}],"components/movie-view/movie-view.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movie-card.scss":"components/movie-card/movie-card.scss"}],"components/movie-view/movie-view.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -34954,7 +34969,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       }, movie.Director.Name), _react.default.createElement("div", null, _react.default.createElement("button", {
         className: "backBut",
         onClick: function onClick() {
-          return location.reload();
+          return window.location.assign('/');
         }
       }, "Back to all movies"))));
     }
@@ -49298,6 +49313,21 @@ var MainView = /*#__PURE__*/function (_React$Component) {
             movie: movies.find(function (m) {
               return m._id === match.params.movieId;
             })
+          });
+        }
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "movies/director/:name",
+        render: function render(_ref2) {
+          var match = _ref2.match;
+          if (!movies) return _react.default.createElement("div", {
+            className: "main-view"
+          });
+          return;
+
+          _react.default.createElement(DirectorView, {
+            director: movies.find(function (m) {
+              return m.Director.Name === match.params.name;
+            }).Director
           });
         }
       })), _react.default.createElement("div", null, _react.default.createElement(_Button.default, {

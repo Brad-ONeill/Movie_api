@@ -31,10 +31,10 @@ export class MovieView extends React.Component {
                     <span className="label">Director:</span>
                     <span className="bodyText">{movie.Director.Name}</span>
                     <div>
-                        <button className="backBut" onClick={() => location.reload()} >Back to all movies</button>
+                        <button className="backBut" onClick={() => window.location.assign('/')} >Back to all movies</button>
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }

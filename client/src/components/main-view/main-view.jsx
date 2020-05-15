@@ -96,9 +96,21 @@ export class MainView extends React.Component {
         return (
             <Router>
                 <div className="main-view">
-                    <Route exact path="/" render={() => movies.map(m => <MovieCard key={m._id} movie={m} />)} />
-                    <Route path="/movies/:movieId" render={({ match }) => <MovieView movie={movies.find(m => m._id === match.params.movieId)} />} />
+                    <Route exact path="/" render={() => movies.map(m => <MovieCard key={m._id} movie={m} />)}
+                    />
+                    <Route path="/movies/:movieId" render={({ match }) => <MovieView movie={movies.find(m => m._id === match.params.movieId)} />}
+                    />
+                    { /* <Route path="movies/genre/:name" render={({ match }) => {
+                            if (!movies) return <div className="main-view" />;
+                                return <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} */}
+                    <Route path="movies/director/:name" render={({ match }) => {
+                        if (!movies) return <div className="main-view" />;
+                        return
+                        <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} />
+                    }
+                    } />
                 </div>
+
                 <div>
                     <Button onClick={() => localStorage.clear(window.location.reload())}>
                         Logout
