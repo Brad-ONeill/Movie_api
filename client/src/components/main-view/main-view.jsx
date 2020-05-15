@@ -17,17 +17,17 @@ export class MainView extends React.Component {
 
         this.state = {
             movies: null,
-            selectedMovie: null,
+            // selectedMovie: null,
             user: null, //user default prop should be set to null (logged out)
-            register: true
+            register: true //not in exercise as it's improvised logic
         };
     }
 
-    onMovieClick(movie) {
+    /* onMovieClick(movie) {
         this.setState({
             selectedMovie: movie
         });
-    }
+    } */
 
     onRegistered() {
         this.setState({
@@ -61,7 +61,7 @@ export class MainView extends React.Component {
         }
     }
 
-    /*componentDidMount() {
+    /* componentDidMount() {
         axios.get('https://limitless-thicket-23479.herokuapp.com/movies')
             .then(response => {
                 // Assign the result to the state
@@ -72,7 +72,7 @@ export class MainView extends React.Component {
             .catch(function (error) {
                 console.log(error);
             });
-    }*/
+    } */
 
     onLoggedIn(authData) {
         console.log(authData);
@@ -92,22 +92,36 @@ export class MainView extends React.Component {
         if (!movies) return <div className="main-view" />;
         if (!register) return <RegistrationView onRegistered={this.onRegistered} />
 
+
         return (
-            <div>
+            <Router>
                 <div className="main-view">
-                    {selectedMovie
-                        ? <MovieView movie={selectedMovie} />
-                        : movies.map(movie => (
-                            <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)} />
-                        ))
-                    }
+                    <Route exact path="/" render={() => movies.map(m => <MovieCard key={m._id} movie={m} />)} />
+                    <Route path="/movies/:movieId" render={({ match }) => <MovieView movie={movies.find(m => m._id === match.params.movieId)} />} />
                 </div>
                 <div>
                     <Button onClick={() => localStorage.clear(window.location.reload())}>
                         Logout
                     </Button>
                 </div>
-            </div>
+            </Router>
         );
+        /* return (
+             <div>
+                 <div className="main-view">
+                     {selectedMovie
+                         ? <MovieView movie={selectedMovie} />
+                         : movies.map(movie => (
+                             <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)} />
+                         ))
+                     }
+                 </div>
+                 <div>
+                     <Button onClick={() => localStorage.clear(window.location.reload())}>
+                         Logout
+                     </Button>
+                 </div>
+             </div>
+         ); */
     }
 }
