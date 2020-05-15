@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Button } from 'react-bootstrap'
 
 import './movie-view.scss'; //import styling
 
@@ -30,9 +31,11 @@ export class MovieView extends React.Component {
                     <span className="bodyText">{movie.Description}</span>
                     <span className="label">Director:</span>
                     <span className="bodyText">{movie.Director.Name}</span>
+
                     <div>
-                        <button className="backBut" onClick={() => window.location.assign('/')} >Back to all movies</button>
+                        <button className="backBut" onClick={() => window.location.assign('/movies')} >Back to all movies</button>
                     </div>
+
                 </div>
             </div >
         );
