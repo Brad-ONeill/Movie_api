@@ -42,7 +42,7 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 
 app.use(cors());
-var allowedOrigins = ['*'];
+var allowedOrigins = ['localhost:1234'];
 var auth = require('./auth')(app);
 
 
