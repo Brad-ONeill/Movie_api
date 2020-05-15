@@ -44,6 +44,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 var auth = require('./auth')(app);
+var allowedOrigins = ['*'];
 
 app.use(function (err, req, res, next) {
     console.error(err.stack);
