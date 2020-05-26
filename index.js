@@ -39,8 +39,8 @@ app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
 
-var cors = require('cors');
-var allowedOrigins = ['*'];
+app.use(cors());
+app.options('*', cors());
 app.use(
     cors({
         origin: function (origin, callback) {
