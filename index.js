@@ -38,9 +38,10 @@ mongoose.connect('mongodb+srv://' + process.env.Userpass + '@darksdb-dkyuz.mongo
 app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
-
 app.use(cors());
-app.options('*', cors());
+
+var allowedOrigins = ['*', 'http://localhost:1234']
+
 app.use(
     cors({
         origin: function (origin, callback) {
