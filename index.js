@@ -40,8 +40,6 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 
 var cors = require('cors');
-app.use(cors());
-
 var allowedOrigins = ['*'];
 app.use(
     cors({
