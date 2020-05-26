@@ -39,8 +39,10 @@ app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
 
-//app.use(cors());
+var cors = require('cors');
+app.use(cors());
 
+var allowedOrigins = ['*'];
 app.use(
     cors({
         origin: function (origin, callback) {
@@ -57,7 +59,7 @@ app.use(
     })
 );
 
-var allowedOrigins = ['*'];
+
 
 var auth = require('./auth')(app);
 
