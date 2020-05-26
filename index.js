@@ -46,7 +46,7 @@ app.use(bodyParser.json());
 app.use(
     cors({
         origin: 'http://localhost:1234',
-        allowedHeaders: ["Access-Control-Allow-Origin", "Content-Type", "Authorization"]
+        allowedHeaders: ['Access-Control-Allow-Origin', '*']
 
         /*  origin: function (origin, callback) {
               if (!origin) return callback(null, true);
