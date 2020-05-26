@@ -39,13 +39,13 @@ app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
 
-app.use(cors());
+//app.use(cors());
 
-var allowedOrigins = ['http://localhost:1234'];
+//var allowedOrigins = ['http://localhost:1234'];
 
 app.use(
     cors({
-        origin: 'http://localhost',
+        origin: 'http://localhost:1234',
         allowedHeaders: ["Content-Type", "Authorization"]
 
         /*  origin: function (origin, callback) {
