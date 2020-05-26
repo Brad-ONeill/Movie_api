@@ -24,8 +24,6 @@ const {
     validationResult
 } = require('express-validator');
 
-
-
 mongoose.connect('mongodb+srv://' + process.env.Userpass + '@darksdb-dkyuz.mongodb.net/darksdb?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -43,8 +41,26 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-var auth = require('./auth')(app);
+var allowedOrigins = ['*'];
 
+app.use(
+    cors({
+        origin: function (origin, callback) {
+            if (!origin) return callback(null, true);
+            if (allowedOrigins.indexOf(origin) === -1) {
+                // if specific origin isn't found on list of allowed origins
+                var message =
+                    'The CORS policy for this application doesn´t allow access from origin' +
+                    origin;
+                return callback(new Error(message), false);
+            }
+            return callback(null, true);
+        }
+    })
+);
+
+
+var auth = require('./auth')(app);
 
 app.use(function (err, req, res, next) {
     console.error(err.stack);
@@ -152,12 +168,12 @@ app.get('/movies/director/:Name', passport.authenticate('jwt', {
     });
 
 // Add new user
-app.post('/users', [check('Username', 'Username is required').isLength({
-    min: 4
-}),
-check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-check('Password', 'Password is required').not().isEmpty(),
-check('Email', 'Email does not appear to be valid').isEmail()], function (req, res) {
+app.post('/users', [
+    check('Username', 'Username is required').isLength({ min: 4 }),
+    check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+    check('Password', 'Password is required').not().isEmpty(),
+    check('Email', 'Email does not appear to be valid').isEmail()
+], function (req, res) {
 
     //check for validation object errors
     var errors = validationResult(req);
@@ -292,7 +308,6 @@ app.delete('/users/:Username/movies/:_id', passport.authenticate('jwt', {
         }
     );
 });
-
 
 // listening for requests
 var port = process.env.PORT || 3000;
