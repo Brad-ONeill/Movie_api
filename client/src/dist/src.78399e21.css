@@ -56,7 +56,8 @@ label {
   padding: 0;
 }
 
-.user-in, .password-in {
+.user-in,
+.password-in {
   padding: 5px;
   margin: 5px 0;
   width: 100%;

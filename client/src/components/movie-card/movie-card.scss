@@ -1,56 +1,56 @@
 $primary-color: #47bae0;
 $complimentary-color: #e06d47;
 $secondary-color: #47e0ba;
-$font-light: #F0F0F0;
+$font-light: #f0f0f0;
 $font-dark: #2e2e2e;
 $button-border: 2px solid #2e2e2e;
 $border: 1px solid #e06d47;
 
-div{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: hidden;
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
 }
-.movieCard{
-    background-color: $primary-color;
-    border: $border;
-    width: 100%;
-    max-width: 20rem;
-    min-width: 10rem;
-    border-radius: 20px;
-    margin: 4px;
-}
-
-.imageCard{
-    border-radius: 20px 20px 0 0;
-    height: 30rem;
-    object-fit: cover;
+.movieCard {
+  background-color: $primary-color;
+  border: $border;
+  width: 100%;
+  max-width: 20rem;
+  min-width: 10rem;
+  border-radius: 20px;
+  margin: 4px;
 }
 
-.cardTitle{
-    display: flex;
-    align-items: center;
-    height: 2.6em;
-    font-size: 1.7em;
-    text-align: center;
+.imageCard {
+  border-radius: 20px 20px 0 0;
+  height: 30rem;
+  object-fit: cover;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  height: 2.6em;
+  font-size: 1.7em;
+  text-align: center;
 }
 
 .cardText {
-     display: flex;
-     overflow: hidden;
-     height: 22rem;
-     padding:2px 0
- }
+  display: flex;
+  overflow: hidden;
+  height: 22rem;
+  padding: 2px 0;
+}
 
-.button{
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    border: $button-border;
-    background-color: $secondary-color;
-    font-weight: 600;
-    color: $font-dark;
-    text-decoration: underline;
+.button {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border: $button-border;
+  background-color: $secondary-color;
+  font-weight: 600;
+  color: $font-dark;
+  text-decoration: underline;
 }
