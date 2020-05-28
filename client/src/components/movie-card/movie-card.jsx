@@ -1,30 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import React from "react";
+import PropTypes from "prop-types";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 import { Link } from "react-router-dom";
 
 //import styling
-import './movie-card.scss';
+import "./movie-card.scss";
 
 export class MovieCard extends React.Component {
-    render() {
-        const { movie } = this.props;
+  render() {
+    const { movie } = this.props;
 
-        return (
-            <Card className="movieCard">
-                <Card.Img className="imageCard" variant="top" src={movie.ImagePath} />
-                <Card.Body>
-                    <Card.Title className="cardTitle">{movie.Title}</Card.Title>
-                    <Card.Text className="cardText">{movie.Description}</Card.Text>
-                    <Link to={`/movies/${movie._id}`}>
-                        <Button className="button" variant="link">Open</Button>
-                    </Link>
-                </Card.Body>
-            </Card>
-        );
-    }
+    return (
+      <Card className="movieCard">
+        <Card.Img className="imageCard" variant="top" src={movie.ImagePath} />
+        <Card.Body>
+          <Card.Title className="cardTitle">{movie.Title}</Card.Title>
+          <Card.Text className="cardText">{movie.Description}</Card.Text>
+          <Link to={`/movies/${movie._id}`}>
+            <Button className="button" variant="link">
+              Open
+            </Button>
+          </Link>
+        </Card.Body>
+      </Card>
+    );
+  }
 }
 
 /* export class MovieCard extends React.Component {
@@ -47,10 +49,10 @@ export class MovieCard extends React.Component {
 } */
 
 MovieCard.propTypes = {
-    movie: PropTypes.shape({
-        Title: PropTypes.string,
-        Description: PropTypes.string,
-        ImagePath: PropTypes.string,
-    }).isRequired,
-    onClick: PropTypes.func.isRequired
+  movie: PropTypes.shape({
+    Title: PropTypes.string,
+    Description: PropTypes.string,
+    ImagePath: PropTypes.string,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
 };
