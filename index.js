@@ -10,8 +10,10 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   uuid = require("uuid/v5");
 const app = express();
-
 const { check, validationResult } = require("express-validator");
+
+const cors = require("cors");
+app.use(cors());
 
 mongoose.connect(
   "mongodb+srv://" +
