@@ -33,7 +33,7 @@ $border: 1px solid #e06d47;
 }
 
 .mTitle {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
 }
 
@@ -43,7 +43,7 @@ $border: 1px solid #e06d47;
   font-weight: 600;
 }
 
-.backBut {
+.btn {
   margin: 20px 0;
   padding: 10px;
   border: $button-border;
@@ -52,4 +52,16 @@ $border: 1px solid #e06d47;
   font-weight: 600;
   color: $font-dark;
   text-decoration: underline;
+}
+
+.subBtn {
+  margin: 0, 20px;
+  padding: 0;
+  border: 0;
+  background-color: $primary-color;
+  border-radius: 0;
+}
+
+.btnText {
+  font-size: 18px;
 }

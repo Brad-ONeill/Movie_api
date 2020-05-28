@@ -49071,6 +49071,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactBootstrap = require("react-bootstrap");
 
+var _reactRouterDom = require("react-router-dom");
+
 require("./movie-view.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -49131,18 +49133,25 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         className: "mTitle"
       }, movie.Title), _react.default.createElement("span", {
         className: "label"
-      }, "Genre:"), _react.default.createElement("span", {
-        className: "bodyText"
-      }, movie.Genre.Name), _react.default.createElement("span", {
+      }, "Genre:\xA0\xA0", _react.default.createElement(_reactRouterDom.Link, {
+        to: "/genres/".concat(movie.Genre.Name)
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        className: "subBtn"
+      }, _react.default.createElement("span", {
+        className: "btnText"
+      }, movie.Genre.Name)))), _react.default.createElement("span", {
         className: "label"
       }, "Description: "), _react.default.createElement("span", {
         className: "bodyText"
       }, movie.Description), _react.default.createElement("span", {
         className: "label"
-      }, "Director:"), _react.default.createElement("span", {
-        className: "bodyText"
-      }, movie.Director.Name), _react.default.createElement("div", null, _react.default.createElement("button", {
-        className: "backBut",
+      }, "Director:\xA0\xA0", _react.default.createElement(_reactRouterDom.Link, {
+        to: "/directors/".concat(movie.Director.Name)
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        className: "subBtn"
+      }, _react.default.createElement("span", {
+        className: "btnText"
+      }, movie.Director.Name)))), _react.default.createElement("div", null, _react.default.createElement(_reactBootstrap.Button, {
         onClick: function onClick() {
           return window.location.assign("/movies");
         }
@@ -49154,7 +49163,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
 }(_react.default.Component);
 
 exports.MovieView = MovieView;
-},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","./movie-view.scss":"components/movie-view/movie-view.scss"}],"components/genre-view/genre-view.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movie-view.scss":"components/movie-view/movie-view.scss"}],"components/genre-view/genre-view.jsx":[function(require,module,exports) {
 
 },{}],"components/director-view/director-view.jsx":[function(require,module,exports) {
 

@@ -151,7 +151,7 @@ div {
 }
 
 .mTitle {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
 }
 
@@ -161,7 +161,7 @@ div {
   font-weight: 600;
 }
 
-.backBut {
+.btn {
   margin: 20px 0;
   padding: 10px;
   border: 2px solid #2e2e2e;
@@ -170,6 +170,18 @@ div {
   font-weight: 600;
   color: #2e2e2e;
   text-decoration: underline;
+}
+
+.subBtn {
+  margin: 0, 20px;
+  padding: 0;
+  border: 0;
+  background-color: #47bae0;
+  border-radius: 0;
+}
+
+.btnText {
+  font-size: 18px;
 }
 body {
   background: #666666;

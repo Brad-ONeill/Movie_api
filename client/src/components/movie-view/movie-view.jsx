@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "./movie-view.scss"; //import styling
 
@@ -23,20 +24,30 @@ export class MovieView extends React.Component {
 
         <div className="txtCont col-sm-6 col-lg-6">
           <span className="mTitle">{movie.Title}</span>
-          <span className="label">Genre:</span>
-          <span className="bodyText">{movie.Genre.Name}</span>
+          <span className="label">
+            Genre:&nbsp;&nbsp;
+            <Link to={`/genres/${movie.Genre.Name}`}>
+              <Button className="subBtn">
+                <span className="btnText">{movie.Genre.Name}</span>
+              </Button>
+            </Link>
+          </span>
+
           <span className="label">Description: </span>
           <span className="bodyText">{movie.Description}</span>
-          <span className="label">Director:</span>
-          <span className="bodyText">{movie.Director.Name}</span>
+          <span className="label">
+            Director:&nbsp;&nbsp;
+            <Link to={`/directors/${movie.Director.Name}`}>
+              <Button className="subBtn">
+                <span className="btnText">{movie.Director.Name}</span>
+              </Button>
+            </Link>
+          </span>
 
           <div>
-            <button
-              className="backBut"
-              onClick={() => window.location.assign("/movies")}
-            >
+            <Button onClick={() => window.location.assign("/movies")}>
               Back to all movies
-            </button>
+            </Button>
           </div>
         </div>
       </div>
