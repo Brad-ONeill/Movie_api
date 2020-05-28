@@ -15,10 +15,12 @@ const
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     uuid = require('uuid/v5');
-const
-    app = express();
-const
-    cors = require('cors');
+const cors = require('cors');
+const express = require('express');
+let app = express();
+app.use(cors());
+app.options('*', cors());
+
 const {
     check,
     validationResult
@@ -38,27 +40,6 @@ mongoose.connect('mongodb+srv://' + process.env.Userpass + '@darksdb-dkyuz.mongo
 app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
-app.use(cors());
-
-var allowedOrigins = ['*', 'http://localhost:1234']
-
-app.use(
-    cors({
-        origin: function (origin, callback) {
-            if (!origin) return callback(null, true);
-            if (allowedOrigins.indexOf(origin) === -1) {
-                // if specific origin isn't found on list of allowed origins
-                var message =
-                    'The CORS policy for this application doesn´t allow access from origin' +
-                    origin;
-                return callback(new Error(message), false);
-            }
-            return callback(null, true);
-        }
-    })
-);
-
-
 
 var auth = require('./auth')(app);
 
