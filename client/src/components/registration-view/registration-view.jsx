@@ -15,7 +15,7 @@ export function RegistrationView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://dashboard.heroku.com/apps/limitless-thicket-23479/users", {
+      .post("https://limitless-thicket-23479.herokuapp.com/users", {
         Username: username,
         Password: password,
         Email: email,

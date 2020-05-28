@@ -48780,7 +48780,7 @@ function RegistrationView(props) {
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
 
-    _axios.default.post("https://dashboard.heroku.com/apps/limitless-thicket-23479/users", {
+    _axios.default.post("https://limitless-thicket-23479.herokuapp.com/users", {
       Username: username,
       Password: password,
       Email: email,
