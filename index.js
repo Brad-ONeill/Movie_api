@@ -52,6 +52,8 @@ app.use(express.static("public"));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 
+var auth = require("./auth")(app);
+
 app.use(function (err, req, res, next) {
   console.error(err.stack);
   res.status(500).send("Oops! Sorry about that, something went wrong!");
