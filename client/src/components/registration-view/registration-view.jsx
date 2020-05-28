@@ -58,10 +58,6 @@ export function RegistrationView(props) {
                     </Form.Group>
                 </Form.Row>
 
-                <Form.Group controlId="checkbox" >
-                    <Form.Check type="checkbox" label="Check this box to confirm your details are correct" />
-                </Form.Group>
-
                 <Button varient="primary" type="submit" onClick={handleSubmit}> Submit</Button >
 
             </Form >
