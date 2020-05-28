@@ -14,7 +14,7 @@ const { check, validationResult } = require("express-validator");
 
 const cors = require("cors");
 app.use(cors());
-let allowedOrigins = ["http://localhost:8080", "*"];
+let allowedOrigins = ["*"];
 
 app.use(
   cors({
@@ -51,8 +51,6 @@ mongoose.connect(
 app.use(express.static("public"));
 app.use(morgan("common"));
 app.use(bodyParser.json());
-
-var auth = require("./auth")(app);
 
 app.use(function (err, req, res, next) {
   console.error(err.stack);
