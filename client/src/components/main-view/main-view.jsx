@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { RegistrationView } from "../registration-view/registration-view";
@@ -90,7 +90,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user, register } = this.state;
+    const { movies, selectedMovie, user, register, director } = this.state;
 
     if (!user)
       return (
@@ -126,7 +126,8 @@ export class MainView extends React.Component {
 
           {/* Genre view */}
           <Route
-            path="movies/genre/:name"
+            exact
+            path="/movies/genre/:name"
             render={({ match }) => {
               if (!movies) return <div className="main-view" />;
               return (
@@ -134,13 +135,15 @@ export class MainView extends React.Component {
                   genre={
                     movies.find((m) => m.Genre.Name === match.params.name).Genre
                   }
+                  movies={movies}
                 />
               );
             }}
           />
           {/* Director view */}
           <Route
-            path="movies/director/:name"
+            exact
+            path="/movies/director/:name"
             render={({ match }) => {
               if (!movies) return <div className="main-view" />;
               return (
@@ -149,10 +152,12 @@ export class MainView extends React.Component {
                     movies.find((m) => m.Director.Name === match.params.name)
                       .Director
                   }
+                  movies={movies}
                 />
               );
             }}
           />
+
           {/* Profile view */}
           <Route
             path="users/:Username"
