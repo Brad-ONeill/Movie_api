@@ -12,6 +12,7 @@ import { DirectorView } from "../director-view/director-view";
 import { ProfileView } from "../profile-view/profile-view";
 
 //styles and elemetns
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
 export class MainView extends React.Component {
@@ -173,8 +174,23 @@ export class MainView extends React.Component {
             Logout
           </Button>
         </div>
+        <div>
+          <Link to={`/users/${user}`}>
+            <Button>
+              <span>Profile</span>
+            </Button>
+          </Link>
+        </div>
+        <div>
+          <Link to={`/movies`}>
+            <Button>
+              <span>movies</span>
+            </Button>
+          </Link>
+        </div>
       </Router>
     );
+
     /* return (
              <div>
                  <div className="main-view">
