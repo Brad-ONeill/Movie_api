@@ -26,7 +26,7 @@ export class MovieView extends React.Component {
           <span className="mTitle">{movie.Title}</span>
           <span className="label">
             Genre:&nbsp;&nbsp;
-            <Link to={`/genres/${movie.Genre.Name}`}>
+            <Link to={`/movies/genre/${movie.Genre.Name}`}>
               <Button className="subBtn">
                 <span className="btnText">{movie.Genre.Name}</span>
               </Button>
@@ -37,7 +37,7 @@ export class MovieView extends React.Component {
           <span className="bodyText">{movie.Description}</span>
           <span className="label">
             Director:&nbsp;&nbsp;
-            <Link to={`/directors/${movie.Director.Name}`}>
+            <Link to={`/movies/director/${movie.Director.Name}`}>
               <Button className="subBtn">
                 <span className="btnText">{movie.Director.Name}</span>
               </Button>
