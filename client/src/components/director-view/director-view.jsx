@@ -17,22 +17,18 @@ export class DirectorView extends React.Component {
     if (!director) return null;
 
     return (
-      <div className="main-view">
-        <span>
-          <Container>
-            <Row>
-              <Card>
-                <Card.Body>
-                  <Card.Title>{director.Name}</Card.Title>
-                  <Card.Text>{director.Birth}</Card.Text>
-                  <Card.Text>{director.Death}</Card.Text>
-                  <Card.Text>{director.Bio}</Card.Text>
-                </Card.Body>
-              </Card>
-            </Row>
-          </Container>
-        </span>
-      </div>
+      <Card>
+        <Card.Body>
+          <Card.Title>{director.Name}</Card.Title>
+          <Card.Subtitle className="text-muted">
+            Born in: {director.Birth}
+          </Card.Subtitle>
+          <Card.Subtitle className="text-muted">
+            Died: {director.Death}
+          </Card.Subtitle>
+          <Card.Text>{director.Bio}</Card.Text>
+        </Card.Body>
+      </Card>
     );
   }
 }
