@@ -17,13 +17,19 @@ export class GenreView extends React.Component {
     if (!genre) return null;
 
     return (
-      <div className="main-view">
-        <div class="card">
-          <div class="card-header">{genre.Name}</div>
-          <div>
-            <p class="card-text">{genre.Description}</p>
-          </div>
-        </div>
+      <div className="genre-view">
+        <Container>
+          <Card>
+            <Card.Header>{genre.Name}</Card.Header>
+
+            <Card.Body>
+              <Card.Text>{genre.Description}</Card.Text>
+              <Link to={`/movies`}>
+                <Button variant="link">Back to all movies</Button>
+              </Link>
+            </Card.Body>
+          </Card>
+        </Container>
       </div>
     );
   }

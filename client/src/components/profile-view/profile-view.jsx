@@ -17,20 +17,16 @@ export class ProfileView extends React.Component {
     if (!userProfile) return null;
 
     return (
-      <div className="main-view">
-        <span>
-          <Container>
-            <Row>
-              <Card>
-                <Card.Body>
-                  <Card.Title>{user.Username}</Card.Title>
-                  <Card.Title>{user.Email}</Card.Title>
-                  <Card.Title>{user.Birthday}</Card.Title>
-                </Card.Body>
-              </Card>
-            </Row>
-          </Container>
-        </span>
+      <div className="profile-view">
+        <Container>
+          <Card>
+            <Card.Body>
+              <Card.Title>{user.Username}</Card.Title>
+              <Card.Title>{user.Email}</Card.Title>
+              <Card.Title>{user.Birthday}</Card.Title>
+            </Card.Body>
+          </Card>
+        </Container>
       </div>
     );
   }
