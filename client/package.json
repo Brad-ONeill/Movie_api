@@ -4,7 +4,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "sass": "^1.26.3"
+    "sass": "^1.26.8"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -14,9 +14,9 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
-    "react-hook-form": "^5.5.3",
+    "react-hook-form": "^5.7.2",
     "react-native": "^0.62.2",
-    "react-router": "^5.1.2",
+    "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
   }
 }
