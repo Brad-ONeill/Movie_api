@@ -91,23 +91,24 @@ export class MainView extends React.Component {
     if (!register) return <RegistrationView onRegistered={this.onRegistered} />;
 
     return (
+      <Router>
       <Container>
         <Row>
-          <Col>
-            <Button href={`/users/${user}`}>
-              <span>Your Profile</span>{" "}
-            </Button>
+          <div>
+            <Link to={`/users/${user}`} >
+              <Button>Your Profile</Button>
+            </Link>
+            
 
             <Button
               onClick={() => localStorage.clear((window.location.href = "/"))}
             >
               Logout
             </Button>
-          </Col>
+          </div>
         </Row>
 
         <Container>
-          <Router>
             <div className="main-view">
               {/* Movie Cards */}
               <Route
@@ -164,18 +165,21 @@ export class MainView extends React.Component {
                 }}
               />
 
-              {/* Profile view */}
+              {/* Profile view
+                to access the profile view, the path has a username that is entered
+                which is used to compute the username params below
+              
+              */}
+              
               <Route
-                path="users/:Username"
-                render={() => {
-                  if (!userProfile) return <div className="profile-view" />;
-                  return <ProfileView userProfile={userProfile} user={user} />;
-                }}
-              />
+                path="/users/:Username"
+                render={({match}) => <ProfileView userName={match.params.Username} />}  
+          />
             </div>
-          </Router>
         </Container>
       </Container>
+      </Router>
+
     );
   }
 }
