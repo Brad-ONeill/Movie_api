@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { RouterLink } from "react-router-dom";
 
 import { RegistrationView } from "../registration-view/registration-view";
 import { LoginView } from "../login-view/login-view";
@@ -24,6 +25,7 @@ export class MainView extends React.Component {
       // selectedMovie: null,
       user: null, //user default prop should be set to null (logged out)
       register: true, //not in exercise as it's improvised logic
+      userProfile: {},
     };
   }
 
@@ -55,6 +57,19 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
+  getProfileData(token) {
+    axios
+      .get(`https://limitless-thicket-23479.herokuapp.com/users`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        console.log("res=====", response);
+        this.setState({ userProfile: response.data });
+      })
+      .catch(function (error) {
+        alert("An error occured: " + error);
+      });
+  }
 
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
@@ -63,6 +78,7 @@ export class MainView extends React.Component {
         user: localStorage.getItem("user"),
       });
       this.getMovies(accessToken);
+      this.getProfileData(accessToken);
     }
   }
 
@@ -91,23 +107,23 @@ export class MainView extends React.Component {
     if (!register) return <RegistrationView onRegistered={this.onRegistered} />;
 
     return (
-      <Container>
-        <Row>
-          <Col>
-            <Button href={`/users/${user}`}>
-              <span>Your Profile</span>{" "}
-            </Button>
-
-            <Button
-              onClick={() => localStorage.clear((window.location.href = "/"))}
-            >
-              Logout
-            </Button>
-          </Col>
-        </Row>
-
+      <Router>
         <Container>
-          <Router>
+          <Row>
+            <div>
+              <Link to={`/users/${user}`}>
+                <Button>Your Profile</Button>
+              </Link>
+
+              <Button
+                onClick={() => localStorage.clear((window.location.href = "/"))}
+              >
+                Logout
+              </Button>
+            </div>
+          </Row>
+
+          <Container>
             <div className="main-view">
               {/* Movie Cards */}
               <Route
@@ -164,18 +180,18 @@ export class MainView extends React.Component {
                 }}
               />
 
-              {/* Profile view */}
+              {/* Profile view - to access the profile view, the path has a username that is entered which is used to compute the username params below */}
+
               <Route
-                path="users/:Username"
-                render={() => {
-                  if (!userProfile) return <div className="profile-view" />;
-                  return <ProfileView userProfile={userProfile} user={user} />;
-                }}
+                path="/users/:Username"
+                render={({ match }) => (
+                  <ProfileView userName={match.params.Username} />
+                )}
               />
             </div>
-          </Router>
+          </Container>
         </Container>
-      </Container>
+      </Router>
     );
   }
 }
