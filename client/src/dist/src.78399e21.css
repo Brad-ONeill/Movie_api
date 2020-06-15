@@ -183,6 +183,39 @@ div {
 .btnText {
   font-size: 18px;
 }
+.card {
+  width: 25rem;
+}
+
+.card-header {
+  width: 100%;
+  font-size: 26px;
+  font-weight: 600;
+}
+.card {
+  width: 25rem;
+}
+
+.card-title {
+  margin: 0;
+}
+
+.card-body {
+  width: 100%;
+  text-align: center;
+  margin: 5px;
+  padding: 10px 5px;
+}
+
+.card-text {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.text-muted {
+  text-align: center;
+}
 body {
   background: #666666;
 }
