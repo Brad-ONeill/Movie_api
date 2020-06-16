@@ -180,7 +180,10 @@ export class MainView extends React.Component {
                 }}
               />
 
-              {/* Profile view - to access the profile view, the path has a username that is entered which is used to compute the username params below */}
+              {/* Profile view
+              to access the profile view,
+              the path has a username that is entered, 
+              which is used to compute the username params below */}
               <Route
                 path="/users/:Username"
                 render={({ match }) => (

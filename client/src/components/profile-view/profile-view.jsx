@@ -40,17 +40,41 @@ export class ProfileView extends React.Component {
     return (
       <div className="profile-view">
         <Container>
-          <Card>
+          <Card id="profile-card">
             <Card.Body>
               <Card.Title>{userProfile.Username}</Card.Title>
             </Card.Body>
+            Update Username
+            <br /> Update password
             <Card.Body>
               <Card.Title>{userProfile.Email}</Card.Title>
             </Card.Body>
             <Card.Body>
               <Card.Title>{userProfile.Birthday}</Card.Title>
             </Card.Body>
+            Update birthday
+            <Card.Body id="card-actions">
+              <Button className="action-btn" variant="primary" block>
+                Save changes
+              </Button>
+              <Button
+                className="action-btn"
+                id="delProfile"
+                variant="danger"
+                size="sm"
+              >
+                Delete Profile <br />
+                WARNING, this action can not be reversed
+              </Button>
+            </Card.Body>
           </Card>
+          <Container>
+            <div>
+              <Link to={`/movies`}>
+                <Button>Back to movies</Button>
+              </Link>
+            </div>
+          </Container>
         </Container>
       </div>
     );

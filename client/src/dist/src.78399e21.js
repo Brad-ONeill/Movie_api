@@ -49418,7 +49418,22 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
       if (!userProfile) return null;
       return _react.default.createElement("div", {
         className: "profile-view"
-      }, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Card, null, _react.default.createElement(_reactBootstrap.Card.Body, null, _react.default.createElement(_reactBootstrap.Card.Title, null, userProfile.Username)), _react.default.createElement(_reactBootstrap.Card.Body, null, _react.default.createElement(_reactBootstrap.Card.Title, null, userProfile.Email)), _react.default.createElement(_reactBootstrap.Card.Body, null, _react.default.createElement(_reactBootstrap.Card.Title, null, userProfile.Birthday)))));
+      }, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Card, {
+        id: "profile-card"
+      }, _react.default.createElement(_reactBootstrap.Card.Body, null, _react.default.createElement(_reactBootstrap.Card.Title, null, userProfile.Username)), "Update Username", _react.default.createElement("br", null), " Update password", _react.default.createElement(_reactBootstrap.Card.Body, null, _react.default.createElement(_reactBootstrap.Card.Title, null, userProfile.Email)), _react.default.createElement(_reactBootstrap.Card.Body, null, _react.default.createElement(_reactBootstrap.Card.Title, null, userProfile.Birthday)), "Update birthday", _react.default.createElement(_reactBootstrap.Card.Body, {
+        id: "card-actions"
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        className: "action-btn",
+        variant: "primary",
+        block: true
+      }, "Save changes"), _react.default.createElement(_reactBootstrap.Button, {
+        className: "action-btn",
+        id: "delProfile",
+        variant: "danger",
+        size: "sm"
+      }, "Delete Profile ", _react.default.createElement("br", null), "WARNING, this action can not be reversed"))), _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/movies"
+      }, _react.default.createElement(_reactBootstrap.Button, null, "Back to movies"))))));
     }
   }]);
 
