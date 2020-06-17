@@ -4,6 +4,7 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import "./profile-view.scss"; //import styling
+import { MovieCard } from "../movie-card/movie-card";
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -57,6 +58,16 @@ export class ProfileView extends React.Component {
               <Button className="action-btn" variant="primary" block>
                 Save changes
               </Button>
+              <Link to={`/movies`}>
+                <Button className="action-btn" variant="primary" block>
+                  Back to movies
+                </Button>
+              </Link>
+            </Card.Body>
+          </Card>
+          <Container>This is a list of the user's favourite movies</Container>
+          <Container>
+            <div>
               <Button
                 className="action-btn"
                 id="delProfile"
@@ -66,13 +77,6 @@ export class ProfileView extends React.Component {
                 Delete Profile <br />
                 WARNING, this action can not be reversed
               </Button>
-            </Card.Body>
-          </Card>
-          <Container>
-            <div>
-              <Link to={`/movies`}>
-                <Button>Back to movies</Button>
-              </Link>
             </div>
           </Container>
         </Container>

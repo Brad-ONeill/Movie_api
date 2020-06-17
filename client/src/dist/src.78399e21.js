@@ -49346,6 +49346,8 @@ var _reactRouterDom = require("react-router-dom");
 
 require("./profile-view.scss");
 
+var _movieCard = require("../movie-card/movie-card");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -49370,7 +49372,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-//import styling
 var ProfileView = /*#__PURE__*/function (_React$Component) {
   _inherits(ProfileView, _React$Component);
 
@@ -49426,14 +49427,18 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         className: "action-btn",
         variant: "primary",
         block: true
-      }, "Save changes"), _react.default.createElement(_reactBootstrap.Button, {
+      }, "Save changes"), _react.default.createElement(_reactRouterDom.Link, {
+        to: "/movies"
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        className: "action-btn",
+        variant: "primary",
+        block: true
+      }, "Back to movies")))), _react.default.createElement(_reactBootstrap.Container, null, "This is a list of the user's favourite movies"), _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement("div", null, _react.default.createElement(_reactBootstrap.Button, {
         className: "action-btn",
         id: "delProfile",
         variant: "danger",
         size: "sm"
-      }, "Delete Profile ", _react.default.createElement("br", null), "WARNING, this action can not be reversed"))), _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/movies"
-      }, _react.default.createElement(_reactBootstrap.Button, null, "Back to movies"))))));
+      }, "Delete Profile ", _react.default.createElement("br", null), "WARNING, this action can not be reversed")))));
     }
   }]);
 
@@ -49441,7 +49446,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
 }(_react.default.Component);
 
 exports.ProfileView = ProfileView;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./profile-view.scss":"components/profile-view/profile-view.scss"}],"components/main-view/main-view.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./profile-view.scss":"components/profile-view/profile-view.scss","../movie-card/movie-card":"components/movie-card/movie-card.jsx"}],"components/main-view/main-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
