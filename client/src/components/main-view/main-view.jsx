@@ -27,6 +27,7 @@ export class MainView extends React.Component {
       register: true, //not in exercise as it's improvised logic
       userProfile: {},
     };
+    this.deleteProfileData = this.deleteProfileData.bind(this);
   }
 
   /* onMovieClick(movie) {
@@ -65,6 +66,29 @@ export class MainView extends React.Component {
       .then((response) => {
         console.log("res=====", response);
         this.setState({ userProfile: response.data });
+      })
+      .catch(function (error) {
+        alert("An error occured: " + error);
+      });
+  }
+  deleteProfileData() {
+    let token = localStorage.getItem("token");
+
+    axios
+      .delete(
+        `https://limitless-thicket-23479.herokuapp.com/users/${this.state.user}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+        console.log("res=====", response);
+        this.setState({
+          movies: [],
+          user: null,
+          register: true,
+          userProfile: {},
+        });
       })
       .catch(function (error) {
         alert("An error occured: " + error);
@@ -165,13 +189,14 @@ export class MainView extends React.Component {
               <Route
                 exact
                 path="/movies/director/:name"
-                render={({ match }) => {
+                render={(props) => {
                   if (!movies) return <div className="director-view" />;
                   return (
                     <DirectorView
+                      {...props}
                       director={
                         movies.find(
-                          (m) => m.Director.Name === match.params.name
+                          (m) => m.Director.Name === props.match.params.name
                         ).Director
                       }
                       movies={movies}
@@ -187,7 +212,10 @@ export class MainView extends React.Component {
               <Route
                 path="/users/:Username"
                 render={({ match }) => (
-                  <ProfileView userName={match.params.Username} />
+                  <ProfileView
+                    deleteProfileData={this.deleteProfileData}
+                    userName={match.params.Username}
+                  />
                 )}
               />
             </div>
