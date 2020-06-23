@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -6,9 +7,15 @@ import { MovieCard } from "../movie-card/movie-card";
 import "./director-view.scss"; //import styling
 
 export class DirectorView extends React.Component {
-  render() {
+  componentDidMount() {
     const { director } = this.props;
+  }
 
+  render() {
+    const { director, movies } = this.props;
+    const movieFilter = movies.filter(
+      (elem) => elem.Director.Name == director.Name
+    );
     if (!director) return null;
 
     return (
@@ -37,7 +44,11 @@ export class DirectorView extends React.Component {
               </Link>
             </Card.Body>
           </Card>
-          <Container>This is where the related movies will be shown</Container>
+          <Container>
+            {movieFilter.map((m) => (
+              <li key={m._id}> {m.Title} </li>
+            ))}
+          </Container>
         </Container>
       </div>
     );
