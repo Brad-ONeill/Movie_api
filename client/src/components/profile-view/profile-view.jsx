@@ -34,6 +34,8 @@ export class ProfileView extends React.Component {
   }
 
   render() {
+    console.log(this.props);
+
     const { userProfile } = this.state;
 
     if (!userProfile) return null;
@@ -69,6 +71,7 @@ export class ProfileView extends React.Component {
           <Container>
             <div>
               <Button
+                onClick={this.props.deleteProfileData}
                 className="action-btn"
                 id="delProfile"
                 variant="danger"
