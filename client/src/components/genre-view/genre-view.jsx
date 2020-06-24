@@ -10,9 +10,12 @@ export class GenreView extends React.Component {
 
     this.state = {};
   }
-
-  render() {
+  componentDidMount() {
     const { genre } = this.props;
+  }
+  render() {
+    const { genre, movies } = this.props;
+    const genreFilter = movies.filter((elem) => elem.Genre.Name == genre.Name);
 
     if (!genre) return null;
 
@@ -23,7 +26,19 @@ export class GenreView extends React.Component {
             <Card.Header>{genre.Name}</Card.Header>
 
             <Card.Body>
-              <Card.Text>{genre.Description}</Card.Text>
+              <Card.Text className="desc-txt">{genre.Description}</Card.Text>
+              {/*more movie example*/}
+              <Card className="others">
+                <Card.Title>Other {genre.Name} movies</Card.Title>
+                <Card.Body>
+                  {genreFilter.map((m) => (
+                    <div key={m._id}>
+                      <img className="pre-img" src={m.ImagePath}></img>
+                    </div>
+                  ))}
+                </Card.Body>
+              </Card>
+              {/*button*/}
               <Link to={`/movies`}>
                 <Button variant="link">Back to all movies</Button>
               </Link>
