@@ -1,24 +1,33 @@
 .card {
-  width: 25rem;
+  width: 50rem;
 }
 
-.card-title {
+div.card-body {
+  padding: 0;
   margin: 0;
 }
 
-.card-body {
+div.card-header {
+  width: 100%;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+p.desc-txt {
+  padding: 20px;
+}
+
+.others {
+  border: 0;
+}
+div.card-title {
   width: 100%;
   text-align: center;
-  margin: 5px;
-  padding: 10px 5px;
+  padding: 20px 0;
 }
 
-.card-text {
-  text-align: left;
-  margin: 0;
-  padding: 0;
-}
-
-.text-muted {
-  text-align: center;
+.pre-img {
+  width: 150px;
+  height: 250px;
+  margin: 7px;
 }

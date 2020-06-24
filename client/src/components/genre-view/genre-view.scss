@@ -1,9 +1,35 @@
 .card {
-  width: 25rem;
+  width: 50rem;
+  align-content: stretch;
 }
 
-.card-header {
+div.dir-age {
   width: 100%;
-  font-size: 26px;
+  text-align: center;
+}
+
+div.card-body {
+  padding: 0;
+  margin: 0;
+}
+
+p.desc-txt {
+  padding: 20px;
+}
+
+.cont-more {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+.cont-title {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
   font-weight: 600;
+}
+
+.img-body {
+  margin: 15px 0;
 }
