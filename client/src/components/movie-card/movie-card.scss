@@ -11,46 +11,25 @@ div {
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+  align-content: stretch;
   overflow: hidden;
 }
 .movieCard {
-  background-color: $primary-color;
+  max-width: 18rem;
+  margin: 5px;
+  align-content: stretch;
   border: $border;
-  width: 100%;
-  max-width: 20rem;
-  min-width: 10rem;
-  border-radius: 20px;
-  margin: 4px;
+}
+.card-body {
+  min-width: 100%;
 }
 
 .imageCard {
-  border-radius: 20px 20px 0 0;
-  height: 30rem;
-  object-fit: cover;
+  height: 400px;
 }
-
-.cardTitle {
-  display: flex;
-  align-items: center;
-  height: 2.6em;
-  font-size: 1.7em;
-  text-align: center;
+.body-main {
+  height: 200px;
 }
-
-.cardText {
-  display: flex;
-  overflow: hidden;
-  height: 22rem;
-  padding: 2px 0;
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  border: $button-border;
-  background-color: $secondary-color;
-  font-weight: 600;
-  color: $font-dark;
-  text-decoration: underline;
+.card-title {
+  margin: 0;
 }

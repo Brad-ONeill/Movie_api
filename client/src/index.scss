@@ -1,5 +1,22 @@
-$background: #666666;
+$primary-color: #47bae0;
+$complimentary-color: #e06d47;
+$secondary-color: #47e0ba;
+$font-light: #f0f0f0;
+$font-dark: #2e2e2e;
+$button-border: 2px solid #2e2e2e;
+$border: 1px solid #e06d47;
 
 body {
-  background: $background;
+  background-color: $primary-color;
+  margin: 0 auto;
+  padding: 0;
+}
+.app-container {
+  padding: 20px;
+}
+.container {
+  display: flex;
+  align-content: stretch;
+  padding: 0;
+  max-width: 100%;
 }
