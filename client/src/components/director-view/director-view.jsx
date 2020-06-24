@@ -23,32 +23,40 @@ export class DirectorView extends React.Component {
         <Container>
           <Card>
             <Card.Body>
-              <Card.Title>{director.Name}</Card.Title>
-            </Card.Body>
+              <Card.Title className="dir-name">{director.Name}</Card.Title>
 
-            <Card.Body>
-              <Card.Text className="col-6 text-muted">
-                Born in: {director.Birth}
-              </Card.Text>
+              <Card.Body className="dir-age">
+                <Card.Text className="col-6 text-muted">
+                  Born in: {director.Birth}
+                </Card.Text>
 
-              <Card.Text className="col-6 text-muted">
-                Died in: {director.Death}
-              </Card.Text>
-            </Card.Body>
+                <Card.Text className="col-6 text-muted">
+                  Died in: {director.Death}
+                </Card.Text>
+              </Card.Body>
 
-            <Card.Body>
-              <Card.Text>Director Bio: {director.Bio}</Card.Text>
-
-              <Link to={`/movies`}>
-                <Button variant="link">Back to all movies</Button>
-              </Link>
+              <Card.Body>
+                <Card.Text className="desc-txt">
+                  Director Bio: {director.Bio}
+                </Card.Text>
+                <Container className="cont-more">
+                  <Row className="cont-title">
+                    More movies directed by {director.Name}
+                  </Row>
+                  <Row className="img-body">
+                    {movieFilter.map((m) => (
+                      <div key={m._id}>
+                        <img className="pre-img" src={m.ImagePath}></img>
+                      </div>
+                    ))}
+                  </Row>
+                </Container>
+                <Link to={`/movies`}>
+                  <Button variant="link">Back to all movies</Button>
+                </Link>
+              </Card.Body>
             </Card.Body>
           </Card>
-          <Container>
-            {movieFilter.map((m) => (
-              <li key={m._id}> {m.Title} </li>
-            ))}
-          </Container>
         </Container>
       </div>
     );
