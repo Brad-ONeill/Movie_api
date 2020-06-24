@@ -138,7 +138,7 @@ export class MainView extends React.Component {
               <Link to={`/users/${user}`}>
                 <Button>Your Profile</Button>
               </Link>
-
+              <div>&nbsp;</div>
               <Button
                 onClick={() => localStorage.clear((window.location.href = "/"))}
               >
