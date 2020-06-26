@@ -24,6 +24,14 @@ export class MovieView extends React.Component {
 
         <div className="txtCont col-sm-6 col-lg-6">
           <span className="mTitle">{movie.Title}</span>
+
+          <Button>
+            <span>Add to favourites</span>
+          </Button>
+          <Button>
+            <span>Remove from favourites</span>
+          </Button>
+
           <span className="label">
             Genre:&nbsp;&nbsp;
             <Link to={`/movies/genre/${movie.Genre.Name}`}>
