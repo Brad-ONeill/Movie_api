@@ -25,12 +25,8 @@ export class MovieView extends React.Component {
         <div className="txtCont col-sm-6 col-lg-6">
           <span className="mTitle">{movie.Title}</span>
 
-          <Button>
-            <span>Add to favourites</span>
-          </Button>
-          <Button>
-            <span>Remove from favourites</span>
-          </Button>
+          <Button>Add to favourites</Button>
+          <Button>Remove from favourites</Button>
 
           <span className="label">
             Genre:&nbsp;&nbsp;
