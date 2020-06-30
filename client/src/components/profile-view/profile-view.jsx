@@ -4,7 +4,6 @@ import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import "./profile-view.scss"; //import styling
-import { MovieCard } from "../movie-card/movie-card";
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -17,6 +16,7 @@ export class ProfileView extends React.Component {
     let accessToken = localStorage.getItem("token");
     this.getUser(accessToken);
   }
+
   getUser(token) {
     const { userName } = this.props;
     axios
@@ -32,6 +32,41 @@ export class ProfileView extends React.Component {
         console.log(error);
       });
   }
+
+  updateUser = (e) => {
+    e.preventDefault();
+    let permToken = localStorage.getItem("token");
+    const oldUsername = this.state.userProfile.Username;
+
+    const { value: Username } = e.currentTarget.userName;
+    const { value: Password } = e.currentTarget.password;
+    const { value: Email } = e.currentTarget.email;
+    const { value: Birthday } = e.currentTarget.birthday;
+
+    const data = {
+      Username,
+      Password,
+      Email,
+      Birthday,
+    };
+    console.log(this);
+    axios
+      .put(
+        "https://limitless-thicket-23479.herokuapp.com/users/" + oldUsername,
+        data,
+        {
+          headers: { Authorization: `Bearer ${permToken}` },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        const { data } = response;
+        this.setState({ userProfile: data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   render() {
     const { userProfile } = this.state;
@@ -71,6 +106,7 @@ export class ProfileView extends React.Component {
                 WARNING, this action can not be reversed
               </Button>
             </Card.Body>
+
             <Card.Body>
               <Card.Title>
                 This is a list of the user's favourite movies
@@ -78,25 +114,41 @@ export class ProfileView extends React.Component {
             </Card.Body>
           </Card>
 
-          <Form className="update">
+          <Form className="update" onSubmit={this.updateUser}>
             <Form.Group controlId="formBasicUser">
               <Form.Label>Change Username</Form.Label>
-              <Form.Control type="string" placeholder="New username" />
+              <Form.Control
+                name="userName"
+                type="string"
+                placeholder="New username"
+              />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Change Password</Form.Label>
-              <Form.Control type="password" placeholder="New Password" />
+              <Form.Control
+                name="password"
+                type="password"
+                placeholder="New Password"
+              />
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Update Email</Form.Label>
-              <Form.Control type="email" placeholder="Update Email" />
+              <Form.Control
+                name="email"
+                type="email"
+                placeholder="Update Email"
+              />
             </Form.Group>
 
             <Form.Group controlId="formBasicBirthday">
               <Form.Label>Update Birthday</Form.Label>
-              <Form.Control type="date" placeholder="Update Birthday" />
+              <Form.Control
+                name="birthday"
+                type="date"
+                placeholder="Update Birthday"
+              />
             </Form.Group>
 
             <Button variant="primary" type="submit">
