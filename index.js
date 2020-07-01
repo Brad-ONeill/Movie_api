@@ -274,8 +274,8 @@ app.delete(
 );
 
 // Add a movie to a user's list of favorites
-app.post(
-  "/users/:Username/movies/:_id",
+app.put(
+  "/users/:Username/:_id",
   passport.authenticate("jwt", {
     session: false,
   }),
@@ -307,7 +307,7 @@ app.post(
 
 // Remove movie from user favourite
 app.delete(
-  "/users/:Username/movies/:_id",
+  "/users/:Username/:_id",
   passport.authenticate("jwt", {
     session: false,
   }),
