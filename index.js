@@ -274,8 +274,8 @@ app.delete(
 );
 
 // Add a movie to a user's list of favorites
-app.put(
-  "/users/:Username/:_id",
+app.post(
+  "/users/:Username/movies/:_id",
   passport.authenticate("jwt", {
     session: false,
   }),
@@ -289,9 +289,7 @@ app.put(
           FavouriteMovies: req.params._id,
         },
       },
-      {
-        new: true,
-      },
+     
       // This line makes sure that the updated document is returned
       function (err, updatedUser) {
         if (err) {
@@ -307,7 +305,7 @@ app.put(
 
 // Remove movie from user favourite
 app.delete(
-  "/users/:Username/:_id",
+  "/users/:Username/movies/:_id",
   passport.authenticate("jwt", {
     session: false,
   }),
