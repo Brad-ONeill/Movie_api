@@ -36,6 +36,7 @@ export class ProfileView extends React.Component {
   updateUser = (e) => {
     e.preventDefault();
     let permToken = localStorage.getItem("token");
+
     const oldUsername = this.state.userProfile.Username;
 
     const { value: Username } = e.currentTarget.userName;
@@ -49,7 +50,7 @@ export class ProfileView extends React.Component {
       Email,
       Birthday,
     };
-    console.log(this);
+
     axios
       .put(
         "https://limitless-thicket-23479.herokuapp.com/users/" + oldUsername,
