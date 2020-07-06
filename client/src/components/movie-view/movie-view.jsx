@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -10,6 +12,30 @@ export class MovieView extends React.Component {
 
     this.state = {};
   }
+
+  addFav = (e) => {
+    e.preventDefault();
+    let newFav = localStorage.getItem("token");
+    let user = localStorage.getItem("user");
+
+    const { movie } = this.props;
+    const favMovie = movie._id;
+
+    axios
+      .post(
+        `https://limitless-thicket-23479.herokuapp.com/users/${user}/movies/${favMovie}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${newFav}` },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   render() {
     const { movie } = this.props;
@@ -25,8 +51,8 @@ export class MovieView extends React.Component {
         <div className="txtCont col-sm-6 col-lg-6">
           <span className="mTitle">{movie.Title}</span>
 
-          <Button>Add to favourites</Button>
-          <Button>Remove from favourites</Button>
+          <Button onClick={this.addFav}>Add to favourites</Button>
+          <Button onClick={this.removeFav}>Remove from favourites</Button>
 
           <span className="label">
             Genre:&nbsp;&nbsp;
