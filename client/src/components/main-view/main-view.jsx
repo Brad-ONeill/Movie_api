@@ -58,6 +58,7 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
+
   getProfileData(token) {
     axios
       .get(`https://limitless-thicket-23479.herokuapp.com/users`, {
@@ -118,7 +119,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user, register, director } = this.state;
+    const { movies, user, register } = this.state;
 
     if (!user)
       return (
