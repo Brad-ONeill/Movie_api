@@ -37,6 +37,31 @@ export class MovieView extends React.Component {
       });
   };
 
+  removeFav = (e) => {
+    e.preventDefault();
+    let remFav = localStorage.getItem("token");
+    let user = localStorage.getItem("user");
+
+    const { movie } = this.props;
+    const delMovie = movie._id;
+
+    axios
+      .delete(
+        `https://limitless-thicket-23479.herokuapp.com/users/${user}/movies/${delMovie}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${remFav}` },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  };
+
   render() {
     const { movie } = this.props;
 
