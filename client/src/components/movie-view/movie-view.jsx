@@ -48,7 +48,6 @@ export class MovieView extends React.Component {
     axios
       .delete(
         `https://limitless-thicket-23479.herokuapp.com/users/${user}/movies/${delMovie}`,
-        {},
         {
           headers: { Authorization: `Bearer ${remFav}` },
         }
