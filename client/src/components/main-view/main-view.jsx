@@ -20,7 +20,6 @@ export class MainView extends React.Component {
       // selectedMovie: null,
       user: null,
       register: true,
-      userProfile: {},
     };
     this.deleteProfileData = this.deleteProfileData.bind(this);
   }
@@ -113,6 +112,8 @@ export class MainView extends React.Component {
   render() {
     const { movies, user, register, userProfile } = this.state;
 
+    /* console.log() */
+
     if (!user)
       return (
         <LoginView
@@ -202,6 +203,7 @@ export class MainView extends React.Component {
                   <ProfileView
                     deleteProfileData={this.deleteProfileData}
                     userName={match.params.Username}
+                    favourites={user.FavouriteMovies}
                   />
                 )}
               />
@@ -215,8 +217,6 @@ export class MainView extends React.Component {
 
 /*
 
- favourites={movies.filter((movie) => {
-                      return userProfile.FavouriteMovies.includes(movie._id);
-                    })}
+ favourites={movies.filter((movie) => { return userProfile.FavouriteMovies.includes(movie._id); })}
 
 */
