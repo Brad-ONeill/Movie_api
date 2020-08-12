@@ -17,8 +17,10 @@ export class ProfileView extends React.Component {
     this.getUser(accessToken);
   }
 
+  /* Return User information*/
   getUser(token) {
     const { userName } = this.props;
+
     axios
       .get("https://limitless-thicket-23479.herokuapp.com/users/" + userName, {
         headers: { Authorization: `Bearer ${token}` },
@@ -33,6 +35,7 @@ export class ProfileView extends React.Component {
       });
   }
 
+  /* Update user information*/
   updateUser = (e) => {
     e.preventDefault();
     let permToken = localStorage.getItem("token");
@@ -107,12 +110,14 @@ export class ProfileView extends React.Component {
                 WARNING, this action can not be reversed
               </Button>
             </Card.Body>
+          </Card>
 
+          {/* favourite movies */}
+          <Card className="profile-card">
             <Card.Body>
-              <Card.Title>
-                This is a list of the user's favourite movies
-              </Card.Title>
+              <Card.Title>Your Favourite Movies</Card.Title>
             </Card.Body>
+            <Card.Body>{userProfile.FavouriteMovies}</Card.Body>
           </Card>
 
           <Form className="update" onSubmit={this.updateUser}>

@@ -1,12 +1,12 @@
-import React, { useState } from "react"; //{useState} to preserve state between renders
+import React, * as react from "react"; //{useState} to preserve state between renders
 import axios from "axios";
 
 //Import stylings
 import "./login-view.scss";
 
 export function LoginView(props) {
-  const [username, setUsername] = useState(""); //Set prop state to blank
-  const [password, setPassword] = useState(""); //Set prop state to blank
+  const [username, setUsername] = react.useState(""); //Set prop state to blank
+  const [password, setPassword] = react.useState(""); //Set prop state to blank
 
   const handleSubmit = (e) => {
     e.preventDefault();

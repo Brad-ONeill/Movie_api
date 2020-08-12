@@ -1,9 +1,6 @@
 import React from "react";
 import axios from "axios";
-import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { RouterLink } from "react-router-dom";
-
 import { RegistrationView } from "../registration-view/registration-view";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
@@ -11,10 +8,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { ProfileView } from "../profile-view/profile-view";
-
-//styles and elemetns
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Button } from "react-bootstrap";
 
 export class MainView extends React.Component {
   constructor() {
@@ -23,18 +18,12 @@ export class MainView extends React.Component {
     this.state = {
       movies: [],
       // selectedMovie: null,
-      user: null, //user default prop should be set to null (logged out)
-      register: true, //not in exercise as it's improvised logic
+      user: null,
+      register: true,
       userProfile: {},
     };
     this.deleteProfileData = this.deleteProfileData.bind(this);
   }
-
-  /* onMovieClick(movie) {
-        this.setState({
-            selectedMovie: movie
-        });
-    } */
 
   onRegistered() {
     this.setState({
@@ -66,12 +55,15 @@ export class MainView extends React.Component {
       })
       .then((response) => {
         console.log("res=====", response);
-        this.setState({ userProfile: response.data });
+        this.setState({
+          userProfile: response.data,
+        });
       })
       .catch(function (error) {
         alert("An error occured: " + error);
       });
   }
+
   deleteProfileData() {
     let token = localStorage.getItem("token");
 
@@ -119,7 +111,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user, register } = this.state;
+    const { movies, user, register, userProfile } = this.state;
 
     if (!user)
       return (
@@ -130,7 +122,7 @@ export class MainView extends React.Component {
       );
     if (!movies) return <div className="main-view" />;
     if (!register) return <RegistrationView onRegistered={this.onRegistered} />;
-
+    console.log(user);
     return (
       <Router>
         <Container>
@@ -150,7 +142,6 @@ export class MainView extends React.Component {
 
           <Container>
             <div className="main-view">
-              {/* Movie Cards */}
               <Route
                 exact
                 path="/movies"
@@ -159,7 +150,6 @@ export class MainView extends React.Component {
                 }
               />
 
-              {/* Movie view */}
               <Route
                 path="/movies/:movieId"
                 render={({ match }) => (
@@ -169,7 +159,6 @@ export class MainView extends React.Component {
                 )}
               />
 
-              {/* Genre view */}
               <Route
                 exact
                 path="/movies/genre/:name"
@@ -186,7 +175,7 @@ export class MainView extends React.Component {
                   );
                 }}
               />
-              {/* Director view */}
+
               <Route
                 exact
                 path="/movies/director/:name"
@@ -206,10 +195,6 @@ export class MainView extends React.Component {
                 }}
               />
 
-              {/* Profile view
-              to access the profile view,
-              the path has a username that is entered, 
-              which is used to compute the username params below */}
               <Route
                 path="/users/:Username"
                 render={({ match }) => (
@@ -226,3 +211,11 @@ export class MainView extends React.Component {
     );
   }
 }
+
+/*
+
+ favourites={movies.filter((movie) => {
+                      return userProfile.FavouriteMovies.includes(movie._id);
+                    })}
+
+*/
