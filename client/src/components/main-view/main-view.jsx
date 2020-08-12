@@ -120,9 +120,10 @@ export class MainView extends React.Component {
           onLoggedIn={(user) => this.onLoggedIn(user)}
         />
       );
+
     if (!movies) return <div className="main-view" />;
     if (!register) return <RegistrationView onRegistered={this.onRegistered} />;
-    console.log(user);
+
     return (
       <Router>
         <Container>
