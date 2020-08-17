@@ -13,6 +13,8 @@ export class MovieView extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {}
+
   addFav = (e) => {
     e.preventDefault();
     let newFav = localStorage.getItem("token");
@@ -58,7 +60,6 @@ export class MovieView extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-
   };
 
   render() {

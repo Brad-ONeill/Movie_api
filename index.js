@@ -289,7 +289,7 @@ app.post(
           FavouriteMovies: req.params._id,
         },
       },
-     
+
       // This line makes sure that the updated document is returned
       function (err, updatedUser) {
         if (err) {
@@ -300,6 +300,36 @@ app.post(
         }
       }
     );
+  }
+);
+
+app.get(
+  "/users/:id/favoritemovies",
+  passport.authenticate("jwt", {
+    session: false,
+  }),
+  function (req, res) {
+    console.log("id=====", req.params);
+
+    let user;
+    let moviesData;
+    Users.findOne({
+      Username: req.params.Username,
+    }).then(function (userdata) {
+      console.log("id=====", userdata);
+      user = userdata;
+    });
+    console.log("id=====", user.FavouriteMovies);
+
+    user.FavouriteMovies.map((id) => {
+      console.log("id=====", id);
+      Movies.findOne({
+        id,
+      }).then(function (movie) {
+        moviesData.push(movie);
+      });
+    });
+    res.sendStatus(200).send({ FavouriteMovies: moviesData });
   }
 );
 
