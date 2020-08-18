@@ -304,32 +304,22 @@ app.post(
 );
 
 app.get(
-  "/users/:id/favoritemovies",
+  "/users/:Username/favoritemovies",
   passport.authenticate("jwt", {
     session: false,
   }),
-  function (req, res) {
-    console.log("id=====", req.params);
-
-    let user;
-    let moviesData;
-    Users.findOne({
-      Username: req.params.Username,
-    }).then(function (userdata) {
-      console.log("id=====", userdata);
-      user = userdata;
+  async function (req, res) {
+    let moviesData = [];
+    let userdata = await Users.findOne({ Username: req.params.Username });
+    Promise.all(
+      userdata.FavouriteMovies.map(async (id) => {
+        await Movies.findById(id).then(function (movie) {
+          moviesData.push(movie);
+        });
+      })
+    ).then(() => {
+      return res.status(200).send({ FavouriteMovies: moviesData });
     });
-    console.log("id=====", user.FavouriteMovies);
-
-    user.FavouriteMovies.map((id) => {
-      console.log("id=====", id);
-      Movies.findOne({
-        id,
-      }).then(function (movie) {
-        moviesData.push(movie);
-      });
-    });
-    res.sendStatus(200).send({ FavouriteMovies: moviesData });
   }
 );
 
