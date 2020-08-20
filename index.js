@@ -303,6 +303,7 @@ app.post(
   }
 );
 
+// Get a list of the user's favourites
 app.get(
   "/users/:Username/favoritemovies",
   passport.authenticate("jwt", {
