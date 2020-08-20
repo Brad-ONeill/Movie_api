@@ -73,7 +73,7 @@ export class ProfileView extends React.Component {
   };
 
   render() {
-    const { userProfile } = this.state;
+    const { userProfile, userFavourites } = this.state;
 
     if (!userProfile) return null;
 
@@ -119,7 +119,7 @@ export class ProfileView extends React.Component {
             <Card.Body>
               <Card.Title>Your Favourite Movies</Card.Title>
             </Card.Body>
-            <Card.Body>{userProfile.FavouriteMovies}</Card.Body>
+            <Card.Body>{}</Card.Body>
           </Card>
 
           <Form className="update" onSubmit={this.updateUser}>
