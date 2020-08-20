@@ -110,9 +110,9 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user, register, userProfile } = this.state;
+    const { movies, user, register } = this.state;
 
-    /* console.log() */
+    //console.log();
 
     if (!user)
       return (
@@ -203,7 +203,6 @@ export class MainView extends React.Component {
                   <ProfileView
                     deleteProfileData={this.deleteProfileData}
                     userName={match.params.Username}
-                    favourites={user.FavouriteMovies}
                   />
                 )}
               />

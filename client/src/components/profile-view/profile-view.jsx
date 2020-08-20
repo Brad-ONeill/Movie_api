@@ -77,6 +77,8 @@ export class ProfileView extends React.Component {
 
     if (!userProfile) return null;
 
+    //console.log();
+
     return (
       <div className="profile-view">
         <Container>
