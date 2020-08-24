@@ -9,12 +9,16 @@ export class ProfileView extends React.Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      userFavourites: [],
+    };
   }
 
   componentDidMount() {
+    const { userName } = this.props;
     let accessToken = localStorage.getItem("token");
     this.getUser(accessToken);
+    this.getFavorites(userName, accessToken);
   }
 
   /* Return User information*/
@@ -28,6 +32,25 @@ export class ProfileView extends React.Component {
       .then((response) => {
         this.setState({
           userProfile: response.data,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  getFavorites(userName, token) {
+    axios
+      .get(
+        "https://limitless-thicket-23479.herokuapp.com/users/:Username/favoritemovies",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          params: { Username: userName },
+        }
+      )
+      .then((response) => {
+        this.setState({
+          userFavourites: response.data,
         });
       })
       .catch(function (error) {

@@ -53,7 +53,6 @@ export class MainView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        console.log("res=====", response);
         this.setState({
           userProfile: response.data,
         });
@@ -74,7 +73,6 @@ export class MainView extends React.Component {
         }
       )
       .then((response) => {
-        console.log("res=====", response);
         this.setState({
           movies: [],
           user: null,
