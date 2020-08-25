@@ -10,7 +10,7 @@ export class ProfileView extends React.Component {
     super();
 
     this.state = {
-      userFavourites: [],
+      favoriteMovies: [],
     };
   }
 
@@ -18,7 +18,7 @@ export class ProfileView extends React.Component {
     const { userName } = this.props;
     let accessToken = localStorage.getItem("token");
     this.getUser(accessToken);
-    this.getFavorites(userName, accessToken);
+    this.getFavoriteMovies(userName, accessToken);
   }
 
   /* Return User information*/
