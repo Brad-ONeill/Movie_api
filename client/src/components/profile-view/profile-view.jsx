@@ -18,7 +18,7 @@ export class ProfileView extends React.Component {
     const { userName } = this.props;
     let accessToken = localStorage.getItem("token");
     this.getUser(accessToken);
-    this.getFavoriteMovies(userName, accessToken);
+    this.getFavoriteMovies(accessToken);
   }
 
   /* Return User information*/
@@ -145,7 +145,9 @@ export class ProfileView extends React.Component {
               <Card.Title>Your Favourite Movies</Card.Title>
             </Card.Body>
             {favoriteMovies.map((favorite, id) => (
-              <Card.Body key={id}>{favorite.Title}</Card.Body>
+              <Card.Body key={id}>
+                <img width="100" src={favorite.ImagePath} />
+              </Card.Body>
             ))}
           </Card>
 
