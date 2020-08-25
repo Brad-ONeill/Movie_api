@@ -39,18 +39,20 @@ export class ProfileView extends React.Component {
       });
   }
 
-  getFavorites(userName, token) {
+  getFavoriteMovies(token) {
+    const { userName } = this.props;
+
     axios
       .get(
-        "https://limitless-thicket-23479.herokuapp.com/users/:Username/favoritemovies",
+        "https://limitless-thicket-23479.herokuapp.com/users/favoritemovies/" +
+          userName,
         {
           headers: { Authorization: `Bearer ${token}` },
-          params: { Username: userName },
         }
       )
       .then((response) => {
         this.setState({
-          userFavourites: response.data,
+          favoriteMovies: response.data.FavouriteMovies,
         });
       })
       .catch(function (error) {
@@ -96,7 +98,7 @@ export class ProfileView extends React.Component {
   };
 
   render() {
-    const { userProfile, userFavourites } = this.state;
+    const { userProfile, favoriteMovies } = this.state;
 
     if (!userProfile) return null;
 
@@ -142,7 +144,9 @@ export class ProfileView extends React.Component {
             <Card.Body>
               <Card.Title>Your Favourite Movies</Card.Title>
             </Card.Body>
-            <Card.Body>{}</Card.Body>
+            {favoriteMovies.map((favorite, id) => (
+              <Card.Body key={id}>{favorite.Title}</Card.Body>
+            ))}
           </Card>
 
           <Form className="update" onSubmit={this.updateUser}>
