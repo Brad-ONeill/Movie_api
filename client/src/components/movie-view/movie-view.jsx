@@ -32,7 +32,7 @@ export class MovieView extends React.Component {
         }
       )
       .then((response) => {
-        console.log(response);
+        //console.log(response);
       })
       .catch(function (error) {
         console.log(error);
@@ -55,7 +55,7 @@ export class MovieView extends React.Component {
         }
       )
       .then((response) => {
-        console.log(response);
+        //console.log(response);
       })
       .catch(function (error) {
         console.log(error);
