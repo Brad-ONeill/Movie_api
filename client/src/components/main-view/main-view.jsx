@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // #0 import of relevant actions to be used in #2
-import { setmovies } from "../../actions/actions";
+import { setMovies } from "../../actions/actions";
 
 //import views
 import { RegistrationView } from "../registration-view/registration-view";
