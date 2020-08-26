@@ -18,6 +18,14 @@
   width: 30rem;
 }
 
+.card-body.favCard {
+  display: inline-block;
+  justify-content: flex-start;
+  padding: 5px;
+  width: 100%;
+  min-width: 50%;
+}
+
 .action-btn {
   margin: 5px;
 }
