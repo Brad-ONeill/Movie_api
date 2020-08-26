@@ -95,4 +95,4 @@ let mapStateToProps = (state) => {
 };
 
 // #4
-export default connect(mapStateToProps, { setMovies })(mainView);
+export default connect(mapStateToProps, { setMovies })(MainView);
