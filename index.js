@@ -169,7 +169,7 @@ app.get(
 
 // Add new user
 app.post(
-  "/users",
+  "/register",
   [
     check("Username", "Username is required").isLength({ min: 4 }),
     check(
