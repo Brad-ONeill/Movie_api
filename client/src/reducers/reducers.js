@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 
 import { SET_FILTER, SET_MOVIES } from "../actions/actions";
 
+//Function #1
 function visibilityFilter(state = "", action) {
   switch (action.type) {
     case SET_FILTER:
@@ -12,6 +13,7 @@ function visibilityFilter(state = "", action) {
   }
 }
 
+//Function #2
 function movies(state = [], action) {
   switch (action.type) {
     case SET_MOVIES:
@@ -21,11 +23,10 @@ function movies(state = [], action) {
   }
 }
 
-function moviesApp(state = {}, action) {
-  return {
-    visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-    movies: movies(state.movies, action),
-  };
-}
+//Combined reducer
+const moviesApp = combinedreducers({
+  visibilityFilter,
+  movies,
+});
 
 export default moviesApp;
