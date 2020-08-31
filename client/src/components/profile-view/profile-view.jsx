@@ -145,8 +145,8 @@ export class ProfileView extends React.Component {
               <Card.Title>Your Favourite Movies</Card.Title>
             </Card.Body>
             {favoriteMovies.map((favorite, id) => (
-              <Card.Body className="favCard" key={id}>
-                <img className="col-4" src={favorite.ImagePath} />
+              <Card.Body key={id}>
+                <img width="100" src={favorite.ImagePath} />
               </Card.Body>
             ))}
           </Card>

@@ -1,5 +1,4 @@
 //Dependancies
-const path = require("path");
 const mongoose = require("mongoose");
 const Models = require("./models.js");
 const passport = require("passport");
@@ -31,10 +30,6 @@ mongoose.connect(
 
 //Middleware
 app.use(express.static("public"));
-app.use("/client", express.static(path.join(__dirname, "client", "dist")));
-app.get("/client/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-});
 app.use(morgan("common"));
 app.use(bodyParser.json());
 
@@ -169,7 +164,7 @@ app.get(
 
 // Add new user
 app.post(
-  "/register",
+  "/users",
   [
     check("Username", "Username is required").isLength({ min: 4 }),
     check(

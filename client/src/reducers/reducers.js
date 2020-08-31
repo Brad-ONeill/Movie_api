@@ -23,8 +23,15 @@ function movies(state = [], action) {
   }
 }
 
-//Combined reducer
-const moviesApp = combinedreducers({
+// function moviesApp(state = {}, action) {
+//   return {
+//     visibilityFilter: visibilityFilter(state.visibilityFilter, action),
+//     movies: movies(state.movies, action),
+//   };
+// }
+
+//Combined reducer (working)
+const moviesApp = combineReducers({
   visibilityFilter,
   movies,
 });
