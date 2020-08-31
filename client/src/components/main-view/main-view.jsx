@@ -154,7 +154,7 @@ export class MainView extends React.Component {
             <div className="main-view">
               <Route
                 exact
-                path="/"
+                path="/movies"
                 render={() => {
                   if (!user)
                     return (
@@ -164,14 +164,6 @@ export class MainView extends React.Component {
                 }}
               />
               <Route path="/register" render={() => <RegistrationView />} />
-              <Route
-                path="/movies/:movieId"
-                render={({ match }) => (
-                  <MovieView
-                    movie={movies.find((m) => m._id === match.params.movieId)}
-                  />
-                )}
-              />
 
               <Route
                 path="/movies/:movieId"

@@ -52304,7 +52304,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         className: "main-view"
       }, _react.default.createElement(_reactRouterDom.Route, {
         exact: true,
-        path: "/",
+        path: "/movies",
         render: function render() {
           if (!user) return _react.default.createElement(_loginView.LoginView, {
             onLoggedIn: function onLoggedIn(user) {
@@ -52331,20 +52331,10 @@ var MainView = /*#__PURE__*/function (_React$Component) {
           });
         }
       }), _react.default.createElement(_reactRouterDom.Route, {
-        path: "/movies/:movieId",
-        render: function render(_ref2) {
-          var match = _ref2.match;
-          return _react.default.createElement(_movieView.MovieView, {
-            movie: movies.find(function (m) {
-              return m._id === match.params.movieId;
-            })
-          });
-        }
-      }), _react.default.createElement(_reactRouterDom.Route, {
         exact: true,
         path: "/movies/genre/:name",
-        render: function render(_ref3) {
-          var match = _ref3.match;
+        render: function render(_ref2) {
+          var match = _ref2.match;
           if (!movies) return _react.default.createElement("div", {
             className: "genre-view"
           });
@@ -52371,8 +52361,8 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         }
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/users/:Username",
-        render: function render(_ref4) {
-          var match = _ref4.match;
+        render: function render(_ref3) {
+          var match = _ref3.match;
           return _react.default.createElement(_profileView.ProfileView, {
             deleteProfileData: _this5.deleteProfileData,
             userName: match.params.Username
@@ -52557,7 +52547,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62625" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55042" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
