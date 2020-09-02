@@ -163,6 +163,7 @@ export class MainView extends React.Component {
                   return <MoviesList movies={movies} />;
                 }}
               />
+
               <Route path="/register" render={() => <RegistrationView />} />
 
               <Route
