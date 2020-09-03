@@ -52251,9 +52251,10 @@ var MainView = /*#__PURE__*/function (_React$Component) {
           Authorization: "Bearer ".concat(token)
         }
       }).then(function (response) {
-        _this3.setState({
-          userProfile: response.data
-        });
+        _this3.props.setUser(response.data); // this.setState({
+        //   userProfile: response.data,
+        // });
+
       }).catch(function (error) {
         alert("An error occured: " + error);
       });
@@ -52390,13 +52391,15 @@ exports.MainView = MainView;
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    movies: state.movies
+    movies: state.movies,
+    user: state.user
   };
 }; // #4
 
 
 var _default = (0, _reactRedux.connect)(mapStateToProps, {
-  setMovies: _actions.setMovies
+  setMovies: _actions.setMovies,
+  setUser: _actions.setUser
 })(MainView);
 
 exports.default = _default;
@@ -52572,7 +52575,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50096" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51217" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

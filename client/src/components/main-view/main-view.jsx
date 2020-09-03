@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // #0
-import { setMovies } from "../../actions/actions";
+import { setMovies, setUser } from "../../actions/actions";
 
 import MoviesList from "../movies-list/movies-list";
 
@@ -82,9 +82,10 @@ export class MainView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        this.setState({
-          userProfile: response.data,
-        });
+        this.props.setUser(response.data);
+        // this.setState({
+        //   userProfile: response.data,
+        // });
       })
       .catch(function (error) {
         alert("An error occured: " + error);
@@ -230,8 +231,8 @@ export class MainView extends React.Component {
 
 // #3
 let mapStateToProps = (state) => {
-  return { movies: state.movies };
+  return { movies: state.movies, user: state.user };
 };
 
 // #4
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);
