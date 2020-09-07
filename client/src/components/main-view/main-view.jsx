@@ -59,7 +59,7 @@ export class MainView extends React.Component {
   }
 
   onLoggedIn(authData) {
-    console.log(authData);
+    //console.log(authData);
     this.setState({
       user: authData.user.Username,
     });
@@ -144,7 +144,9 @@ export class MainView extends React.Component {
               </Link>
               <div>&nbsp;</div>
               <Button
-                onClick={() => localStorage.clear((window.location.href = "/"))}
+                onClick={() =>
+                  localStorage.clear((window.location.href = "/client"))
+                }
               >
                 Logout
               </Button>

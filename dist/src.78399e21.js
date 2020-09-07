@@ -52225,7 +52225,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "onLoggedIn",
     value: function onLoggedIn(authData) {
-      console.log(authData);
+      //console.log(authData);
       this.setState({
         user: authData.user.Username
       });
@@ -52311,7 +52311,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         to: "/users/".concat(user)
       }, _react.default.createElement(_reactBootstrap.Button, null, "Your Profile")), _react.default.createElement("div", null, "\xA0"), _react.default.createElement(_reactBootstrap.Button, {
         onClick: function onClick() {
-          return localStorage.clear(window.location.href = "/");
+          return localStorage.clear(window.location.href = "/client");
         }
       }, "Logout"))), _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement("div", {
         className: "main-view"
