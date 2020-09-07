@@ -30,6 +30,7 @@ mongoose.connect(
 
 //Middleware
 app.use(express.static("public"));
+app.use("/client", express.static(path.join(__dirname, "client", "dist")));
 app.use(morgan("common"));
 app.use(bodyParser.json());
 
@@ -45,7 +46,9 @@ app.use(function (err, req, res, next) {
 });
 
 // --- app requests ---
-
+app.get("/client/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 // Get all movies
 app.get(
   "/movies",
