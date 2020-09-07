@@ -12,6 +12,7 @@ const express = require("express"),
 const app = express();
 const cors = require("cors");
 const { check, validationResult } = require("express-validator");
+const path = require("path");
 
 mongoose.connect(
   "mongodb+srv://" +
@@ -36,7 +37,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-var allowedOrigins = ["*"];
+var allowedOrigins = ["http://localhost:1234", "*"];
 
 var auth = require("./auth")(app);
 
