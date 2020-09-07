@@ -135,7 +135,7 @@ export class MainView extends React.Component {
     if (!register) return <RegistrationView onRegistered={this.onRegistered} />;
 
     return (
-      <Router>
+      <Router basename="/client">
         <Container>
           <Row>
             <div>
