@@ -7,7 +7,7 @@
     "sass": "^1.26.8"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.30.2",
     "bootstrap": "^4.5.0",
     "cors": "^2.8.5",
     "prop-types": "^15.7.2",
